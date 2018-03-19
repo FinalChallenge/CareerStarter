@@ -87,4 +87,8 @@ public class Program {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
+
+    public void addUser(User user){
+        this.users.add(user);
+    }
 }
