@@ -19,6 +19,9 @@ public class User {
     private String name;
 
     @Column
+    private String englishLL;
+
+    @Column
     private String workInUs;
 
     @Column
@@ -211,6 +214,14 @@ public class User {
     }
     public void addProgram(Program program){
         this.programs.add(program);
+    }
+
+    public String getEnglishLL() {
+        return englishLL;
+    }
+
+    public void setEnglishLL(String englishLL) {
+        this.englishLL = englishLL;
     }
 }
 

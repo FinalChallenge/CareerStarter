@@ -91,4 +91,9 @@ public class Program {
     public void addUser(User user){
         this.users.add(user);
     }
+
+    public void addCriteria(String criteria){
+        this.criteria.add(criteria);
+    }
+
 }
