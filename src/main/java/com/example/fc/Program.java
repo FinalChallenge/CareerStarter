@@ -99,4 +99,16 @@ public class Program {
         this.criteria.add(criteria);
     }
 
+    public void addAccepted(String name){
+        this.accepted.add(name);
+    }
+
+    public void addAttending(String name){
+        this.attending.add(name);
+    }
+
+    public void addApplied(String name){
+        this.applied.add(name);
+    }
+
 }

@@ -19,11 +19,18 @@
         <span th:text="${project.criteria}"></span>
 
 
-        <a sec:authorize="hasAuthority('USER')" class="btn btn-primary btn-small typeone " href="/apply/{id} (id=${user.id})}" role="button">Apply</a><br />
 
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/applicants/{id} (id=${user.id})}" role="button">View Applicants</a><br />
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/accepted/{id} (id=${user.id})}" role="button">View Accepted Students</a><br />
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/attending/{id} (id=${user.id})}" role="button">View Attending Students</a><br />
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br />
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br />
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br />
+
+
+        <div>
+            <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
+            <input type="hidden" name="programid" th:value="${programid}">
+            <button class="btn btn-primary btn-large" type="submit" >Apply</button>
+            </form>
+        </div>
 
 
     </div>
