@@ -16,10 +16,10 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" sec:authorize="isAnonymous()" href="/Login" >Log in</a>
+                    <a class="nav-link" sec:authorize="isAnonymous()" href="/login" >Log in</a>
                 </li>
                 <li th:class="nav-item">
-                    <a class="nav-link" sec:authorize="isAnonymous()" href="/Registration">Register</a>
+                    <a class="nav-link" sec:authorize="isAnonymous()" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
                     <a th:href="@{/logout?logout}" class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()">Log Out</a>
