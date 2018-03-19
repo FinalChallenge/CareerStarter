@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <!--<link href="/css/stylesheet.css" type="text/css" rel="stylesheet"/>-->
     <title>Final Challenge</title>
-<!--Sunny-->
+    <!--Sunny-->
 </head>
 <body>
 <div th:replace="Base :: navlinks"></div>
@@ -20,9 +20,11 @@
 
 
         <a sec:authorize="hasAuthority('USER')" class="btn btn-primary btn-small typeone " href="/apply/{id} (id=${user.id})}" role="button">Apply</a><br />
+
         <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/applicants/{id} (id=${user.id})}" role="button">View Applicants</a><br />
         <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/accepted/{id} (id=${user.id})}" role="button">View Accepted Students</a><br />
         <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " href="/attending/{id} (id=${user.id})}" role="button">View Attending Students</a><br />
+
 
     </div>
 </div>

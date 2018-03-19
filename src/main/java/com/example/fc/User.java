@@ -1,7 +1,7 @@
 package com.example.fc;
 
+import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
 
