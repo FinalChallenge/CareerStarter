@@ -18,6 +18,7 @@ public class User {
     @Column
     private String name;
 
+    /////////
     @Column
     private String englishLL;
 
@@ -31,13 +32,13 @@ public class User {
     private String expOOP;
 
     @Column
-    private String major;
+    private String correctMajor; //return yes if major was Computer Science or Information System
 
     @Column
-    private int gradYear;
+    private String recentGrad; //return yes if graduated less than or equal to 6 years ago
 
     @Column
-    private String salaryUnderCutoff;
+    private String salaryUnderCutoff; //return yes if under 42k
 
     @Column
     private String hsGed;
@@ -128,20 +129,13 @@ public class User {
         this.expOOP = expOOP;
     }
 
-    public String getMajor() {
-        return major;
+
+    public String getCorrectMajor() {
+        return correctMajor;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
-    public int getGradYear() {
-        return gradYear;
-    }
-
-    public void setGradYear(int gradYear) {
-        this.gradYear = gradYear;
+    public void setCorrectMajor(String correctMajor) {
+        this.correctMajor = correctMajor;
     }
 
     public String getSalaryUnderCutoff() {
@@ -222,6 +216,14 @@ public class User {
 
     public void setEnglishLL(String englishLL) {
         this.englishLL = englishLL;
+    }
+
+    public String getRecentGrad() {
+        return recentGrad;
+    }
+
+    public void setRecentGrad(String recentGrad) {
+        this.recentGrad = recentGrad;
     }
 }
 
