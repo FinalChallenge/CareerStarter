@@ -1,14 +1,27 @@
 package com.example.fc;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    RoleRepository roleRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    ProgramRepository programRepository;
 
     @GetMapping("/")
     public String home(){
@@ -41,24 +54,21 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String register(Model model, Authentication auth, BindingResult result) {
+    public String register(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (result.hasErrors()) {
             return "Registration";
         }
-        //write the logic to save the registration information
-
-
+        user.addRole(roleRepository.findByRoleName("USER"));
+        userRepository.save(user);
+        return "redirect:/";
     }
 
 
-
-
-
-    @GetMapping("/user/edit/{id}")
-    public String edituser() {
-
-        return "Edit";
-
+    @GetMapping("/user/edit")
+    public String editUser(Model model, Authentication auth) {
+        User user = userRepository.findByUsername(auth.getName());
+        model.addAttribute("user", user);
+        return "Register"; //See if should use Edit.html instead
     }
 
     @GetMapping("/course/{id}")
