@@ -13,6 +13,8 @@ public class HomeController {
     @GetMapping("/")
     public String home(){
 //displays the navbar has home login and register
+
+
         return "Home";
     }
 
@@ -24,6 +26,8 @@ public class HomeController {
     @GetMapping("/programs")
     public String allPrograms(Model model){
 // displays brief desc.
+        model.addAttribute("hello");
+
         return "All";
     }
 
