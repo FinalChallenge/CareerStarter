@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+
+<div class="container" >
+<h5>New User Registration</h5>
+    <form action="#"
+          th:action="@{/register}"
+          th:object="${user}"
+          method="post">
+        <div class="col-3">
+            <input type="hidden" th:field="*{id}" />
+        </div>
+        <div class="col-3">
+            <label id="labelUserRegistration"><h5>User Registration</h5></label>
+        </div>
+        <div class="col-3">
+            <label id="labelname">Name</label>
+            <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div><br/>
+        <div>
+            <label id="labelLanguage">Are you learning English language?</label><br/>
+
+        </div>
+        <div class="col-3">
+            <label id="labelEmail">Email</label>
+            <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div class="col-3">
+            <label id="labelUsername">User name</label>
+            <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </div>
+
+        <div class="col-3">
+            <label id="labelFirstName">First Name</label>
+            <input type="text" class="form-control" id="textFirstName" th:field="*{firstName}" placeholder="Enter first name"/>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        </div>
+        <div class="col-3">
+            <label id="labelLastName">Last Name</label>
+            <input type="text" class="form-control" id="textLastName" th:field="*{lastName}" placeholder="Enter last name"/>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        </div>
+
+
+        <div class="col-3">
+            <label id="labelImage">Image</label>
+            <input type="file" name="file" />
+        </div><br/>
+
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+<!--<form autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" enctype="multipart/form-data" method="post">
+    <div class="col-3">
+        <input type="hidden" th:field="*{id}" />
+    </div>
+    First Name <mark><strong><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</span></strong></mark>
+                <input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}"/><br />
+    Last Name <mark><strong><span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</span></strong></mark>
+                <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}"/><br />
+    Email <mark><strong><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span></strong></mark>
+                <input type="text" id="email" placeholder="Email" th:field="*{email}"/><br />
+    Username <mark><strong><span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span></strong></mark>
+                <input type="text" id="username" placeholder="Username" th:field="*{username}"/><br />
+    Password <mark><strong><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span></strong></mark>
+             <input type="password" id="password" placeholder="Password" th:field="*{password}"/><br />
+    <div class="col-3">
+        <input type="hidden" name="file" th:field="*{userImageUrl}" />
+    </div>
+   &lt;!&ndash; <div class="col-3">
+        <label id="labelImage">Image</label>
+        <input type="file" name="file" />
+    </div><br/>&ndash;&gt;
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>-->
+</div>
+
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 package com.example.fc;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,6 +9,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Email
+    @Column
+    private String email;
 
     @Column
     private String username;
@@ -224,6 +229,14 @@ public class User {
 
     public void setRecentGrad(String recentGrad) {
         this.recentGrad = recentGrad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
