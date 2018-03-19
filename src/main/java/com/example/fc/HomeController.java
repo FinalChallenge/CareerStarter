@@ -28,9 +28,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-//displays the navbar has home login and register
-
-
         return "Home";
     }
 
@@ -39,7 +36,7 @@ public class HomeController {
         return "Login";
     }
 
-    //matched based on critera
+    //matched based on criteria
     @GetMapping("/myprograms")
     public String myPrograms(Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
@@ -53,6 +50,7 @@ public class HomeController {
         model.addAttribute("programs", programRepository.findAll());
         return "All";
     }
+
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("user", new User());
@@ -85,7 +83,7 @@ public class HomeController {
         return "Program";
 
     }
-
+////[possibly merge this with the above method and have the admin tools hidden to users]
     @GetMapping("/admin/course/{id}")
     public String adminTools(@PathVariable("id") long id, Model model) {
         Program program = programRepository.findOne(id);
@@ -93,7 +91,7 @@ public class HomeController {
         return "AdminTools";
     }
 
-
+///Look at the programs user applied to, status of those applications
     @GetMapping("/user/programs")
     public String applied(Authentication auth, Model model) {
         User user = userRepository.findByUsername(auth.getName());
