@@ -14,6 +14,9 @@ public class Program {
     private String name;
 
     @Column
+    private String description;
+
+    @Column
     private ArrayList<String> criteria = new ArrayList<String>();
 
     @Column

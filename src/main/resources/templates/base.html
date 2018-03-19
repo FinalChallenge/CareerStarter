@@ -8,7 +8,7 @@
 </head>
 <body>
 <div th:fragment="navlinks">
-   <div class="container">
+    <div class="container">
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <ul class="navbar-nav">
 
@@ -16,7 +16,10 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" sec:authorize="isAnonymous()" href="/login" >Log in</a>
+                    <a class="nav-link" sec:authorize="isAnonymous()" href="/Login" >Log in</a>
+                </li>
+                <li th:class="nav-item">
+                    <a class="nav-link" sec:authorize="isAnonymous()" href="/Registration">Register</a>
                 </li>
                 <li class="nav-item">
                     <a th:href="@{/logout?logout}" class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()">Log Out</a>
