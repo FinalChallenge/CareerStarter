@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+
+<div class="container" >
+<h5>New User Registration</h5>
+    <form action="#"
+          th:action="@{/register}"
+          th:object="${user}"
+          method="post">
+        <div class="col-3">
+            <input type="hidden" th:field="*{id}" />
+        </div>
+        <div class="col-3">
+            <label id="labelUserRegistration"><h5>User Registration</h5></label>
+        </div>
+        <div class="col-3">
+            <label id="labelname">Name</label>
+            <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div><br/>
+
+        <div class="col-3">
+            <label id="labelEmail">Email</label>
+            <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+        <div class="col-3">
+            <label id="labelUsername">Username</label>
+            <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </div>
+        <div>
+            <label id="labelLanguage">Are you currently learning English?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{englishLL}" value="Yes">Yes</label>
+            </div>
+        </div>
+
+        <div>
+            <label id="labelWork">Are able to work in the US?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{workInUs}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelOOP">Do you have basic understanding of Object Oriented Programming?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{understandOOP}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelExp">Do you have a previous experience in Object Oriented Programming?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{expOOP}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelMajor">Is your major Computer Science/Information Systems?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{correctMajor}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelRecentGrad">Are you graduated within the last 6 years?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{recentGrad}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelSalary">Are you currently earning 42,000 or less?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{salaryUnderCutoff}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelGED">Do you have a high school diploma or GED?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{hsGed}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelInterest">Do you have a strong interest in IT career?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{interestIT}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelComputerUsage">Are you comfortable using computers for everyday purposes?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{comfComp}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelUnemployed">Are you unemployed with barriers to employment?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{unemployed}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div>
+            <label id="labelUnderemployed">Are you underemployed with barriers to better employment?</label><br/>
+            <div class="checkbox">
+                <label><input type="checkbox" th:field="*{underemployed}" value="Yes">Yes</label>
+            </div>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+
+</html>
