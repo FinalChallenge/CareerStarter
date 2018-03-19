@@ -5,10 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashSet;
@@ -79,6 +76,7 @@ public class HomeController {
     @GetMapping("/program/{id}")
     public String course(Model model, @PathVariable("id") long id) {
         Program program = programRepository.findOne(id);
+        model.addAttribute("jobid", id);
         model.addAttribute("program", program);
         return "Program";
 
@@ -98,6 +96,36 @@ public class HomeController {
         model.addAttribute("programs", user.getPrograms());
         return "Applied";
     }
+
+
+    @PostMapping("/apply/{programid}/{id}")
+    public String applyToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
+        User user = userRepository.findOne(id);
+        Program program = programRepository.findOne(programid);
+        program.addUser(user);
+        program.addApplied(user.getName());
+        programRepository.save(program);
+        return "redirect:/";
+    }
+
+    @PostMapping("/accept/{programid}/{id}")
+    public String acceptToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
+        User user = userRepository.findOne(id);
+        Program program = programRepository.findOne(programid);
+        program.addAccepted(user.getName());
+        programRepository.save(program);
+        return "redirect:/";
+    }
+
+    @PostMapping("/attending/{programid}/{id}")
+    public String attendToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
+        User user = userRepository.findOne(id);
+        Program program = programRepository.findOne(programid);
+        program.addAttending(user.getName());
+        programRepository.save(program);
+        return "redirect:/";
+    }
+
 
 ///////////////************///////////////////////////////
     public Set<Program> findPrograms(User user){
