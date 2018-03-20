@@ -24,6 +24,8 @@ public class HomeController {
     @Autowired
     ProgramRepository programRepository;
 
+    ///////////EVERYONE CAN SEE//////////////////////////////////////////////////
+
     @GetMapping("/")
     public String home(){
         return "Home";
@@ -32,21 +34,6 @@ public class HomeController {
     @GetMapping("/login")
     public String login(){
         return "Login";
-    }
-
-    //matched based on criteria
-    @GetMapping("/myprograms")
-    public String myPrograms(Model model, Authentication auth){
-        User user = userRepository.findByUsername(auth.getName());
-        Set<Program> programs = findPrograms(user);
-        model.addAttribute("programs", programs);
-        return "MyPrograms";
-    }
-
-    @GetMapping("/allprograms")
-    public String allPrograms(Model model){
-        model.addAttribute("programs", programRepository.findAll());
-        return "All";
     }
 
     @GetMapping("/register")
@@ -65,7 +52,24 @@ public class HomeController {
         return "redirect:/";
     }
 
-//edit user info
+    @GetMapping("/allprograms")
+    public String allPrograms(Model model){
+        model.addAttribute("programs", programRepository.findAll());
+        return "All";
+    }
+
+////////////////USER/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+    //matched based on criteria
+    @GetMapping("/myprograms")
+    public String myPrograms(Model model, Authentication auth){
+        User user = userRepository.findByUsername(auth.getName());
+        Set<Program> programs = findPrograms(user);
+        model.addAttribute("programs", programs);
+        return "MyPrograms";
+    }
+
+    //edit user info
     @GetMapping("/user/edit")
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
@@ -80,17 +84,9 @@ public class HomeController {
         model.addAttribute("jobid", id);
         model.addAttribute("program", program);
         return "Program";
+    }
 
-    }
-////[possibly merge this with the above method and have the admin tools hidden to users]
-    @GetMapping("/admin/course/{id}")
-    public String adminTools(@PathVariable("id") long id, Model model) {
-        Program program = programRepository.findOne(id);
-        model.addAttribute("program", program);
-        return "AdminTools";
-    }
-/////////////////////////////////////////////////////////////
-///Look at the programs user applied to, status of those applications
+    ///Look at the programs user applied to, status of those applications
     @GetMapping("/user/programs")
     public String applied(Authentication auth, Model model) {
         User user = userRepository.findByUsername(auth.getName());
@@ -110,23 +106,23 @@ public class HomeController {
         return "Applied";
     }
 
-///////////////////////////////////////////////////////////////////////
+    //////[possibly merge this with the above method and have the admin tools hidden to users]
+//    @GetMapping("/admin/course/{id}")
+//    public String adminTools(@PathVariable("id") long id, Model model) {
+//        Program program = programRepository.findOne(id);
+//        model.addAttribute("program", program);
+//        return "AdminTools";
+//    }
+//////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
     @PostMapping("/apply/{programid}/{id}")
     public String applyToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
         program.addUser(user);
-        program.addApplied(user.getName());
+        program.addApplied(user.getUsername());
         programRepository.save(program);
-        return "redirect:/";
-    }
-
-    @PostMapping("/accept/{programid}/{id}")
-    public String acceptToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
-        User user = userRepository.findOne(id);
-        Program program = programRepository.findOne(programid);
-        program.addAccepted(user.getName());
-        programRepository.save(program);
+        user.addProgram(program);
+        userRepository.save(user);
         return "redirect:/";
     }
 
@@ -134,13 +130,55 @@ public class HomeController {
     public String attendToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
-        program.addAttending(user.getName());
+        program.addAttending(user.getUsername());
         programRepository.save(program);
         return "redirect:/";
     }
+/////////////////ADMIN ONLY/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
+    /////////Accept student into program///////////////////////////////////////
+    @PostMapping("/accept/{programid}/{id}")
+    public String acceptToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model) {
+        User user = userRepository.findOne(id);
+        Program program = programRepository.findOne(programid);
+        program.addAccepted(user.getUsername());
+        programRepository.save(program);
+        return "redirect:/";
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    /////////View Applicants, Accepted, Attending///////////////////
+    @RequestMapping("/applicants/{id}")
+    public String viewApplicants(Model model, @PathVariable("id") long id){
+        Program program = programRepository.findOne(id);
+        model.addAttribute("users", program.getUsers());
+        return "Applicants";
+    }
+
+    @RequestMapping("/accepted/{id}")
+    public String viewAccepted(Model model, @PathVariable("id") long id){
+        Program program = programRepository.findOne(id);
+        Set<User> users = new HashSet<>();
+        for(String name: program.getAccepted()){
+            users.add(userRepository.findByUsername(name));
+        }
+        model.addAttribute("users", users);
+        return "Accepted";
+    }
+
+    @RequestMapping("/attending/{id}")
+    public String viewAttending(Model model, @PathVariable("id") long id){
+        Program program = programRepository.findOne(id);
+        Set<User> users = new HashSet<>();
+        for(String name: program.getAttending()){
+            users.add(userRepository.findByUsername(name));
+        }
+        model.addAttribute("users", users);
+        return "Attending";
+    }
 
 ///////////////************//////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
     public Set<Program> findPrograms(User user){
         Set<Program> programs = new HashSet<>();
         ////check if user matches any program criteria
