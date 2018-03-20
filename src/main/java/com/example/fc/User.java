@@ -2,6 +2,7 @@ package com.example.fc;
 
 import org.hibernate.validator.constraints.Email;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,11 @@ public class User {
 
     @Column
     private String name;
+
+
+    @Column
+    private ArrayList<String> criteria;
+
 
     /////////
     @Column
@@ -75,6 +81,7 @@ public class User {
     public User() {
         this.programs = new HashSet<>();
         this.roles = new HashSet<>();
+        this.criteria = new ArrayList<String>();
     }
 
 
@@ -237,6 +244,57 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void findCriteria(){
+        if(this.englishLL.equalsIgnoreCase("yes")){
+            this.criteria.add("English Language Learner");
+        }
+        if(this.salaryUnderCutoff.equalsIgnoreCase("yes")){
+            this.criteria.add("Salary Under 42k Cutoff");
+        }
+        if(this.underemployed.equalsIgnoreCase("yes")){
+            this.criteria.add("Underemployed");
+        }
+        if(this.unemployed.equalsIgnoreCase("yes")){
+            this.criteria.add("Unemployed");
+        }
+        if(this.comfComp.equalsIgnoreCase("yes")){
+            this.criteria.add("Comfortable with Computers");
+        }
+        if(this.interestIT.equalsIgnoreCase("yes")){
+            this.criteria.add("Strong Interest in IT");
+        }
+        if(this.hsGed.equalsIgnoreCase("yes")){
+            this.criteria.add("Have HS diploma or GED");
+        }
+        if(this.workInUs.equalsIgnoreCase("yes")){
+            this.criteria.add("Legally authorized to work in US");
+        }
+        if(this.understandOOP.equalsIgnoreCase("yes")){
+            this.criteria.add("Basic understanding of Object Oriented Programming");
+        }
+        if(this.expOOP.equalsIgnoreCase("yes")){
+            this.criteria.add("Previous experience with Object Oriented Programming");
+        }
+        if(this.correctMajor.equalsIgnoreCase("yes")){
+            this.criteria.add("Major in Computer Science or Information Systems");
+        }
+        if(this.recentGrad.equalsIgnoreCase("yes")){
+            this.criteria.add("Graduated within last 6 years");
+        }
+    }
+
+
+    public ArrayList<String> getCriteria() {
+        findCriteria();
+        return criteria;
+    }
+
+    
+
+    public void setCriteria(ArrayList<String> criteria) {
+        this.criteria = criteria;
     }
 }
 
