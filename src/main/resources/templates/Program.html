@@ -14,9 +14,9 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
 
-        <h4 th:text="${project.name}"></h4>
-        <span th:text="${project.description}"></span>
-        <span th:text="${project.criteria}"></span>
+        <h4 th:text="${program.name}"></h4>
+        <span th:text="${program.description}"></span>
+        <span th:text="${program.criteria}"></span>
 
 
 
@@ -27,7 +27,7 @@
 
         <div>
             <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{id} (id=${program.id})}" method="post">
-            <input type="hidden" name="programid" th:value="${programid}">
+            <input type="hidden" name="programid" th:value="${programid}"/>
             <button class="btn btn-primary btn-large" type="submit" >Apply</button>
             </form>
         </div>

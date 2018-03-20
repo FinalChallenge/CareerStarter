@@ -77,7 +77,7 @@ public class DataLoader implements CommandLineRunner {
         User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
         user8.addRole(userRole);
         userRepository.save(user8);
- 
+
 //Programs
 //Hiring in Tech
         Program techHire=new Program();
