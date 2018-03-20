@@ -86,69 +86,67 @@ public class DataLoader implements CommandLineRunner {
 //Programs
 //Hiring in Tech
         Program techHire=new Program();
-
+        programRepository.save(techHire);
         techHire.setName("Hiring in Tech");
 
         techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training" +
-                " program for those interested in careers in computers and Information Technology (IT). " +
-                "Based on your skills, experience, and English level, you may be able to enter one or more" +
-                " tracks that will help you further your education and training and find a job.");
+                " program for those interested in careers in computers and Information Technology.");
 
         techHire.addCriteria("English Language Learner");
         techHire.addCriteria("Unemployed");
         techHire.addCriteria("Underemployed");
         techHire.addCriteria("Comfortable with Computers");
-        techHire.addCriteria("Strong Interest in IT");
-        techHire.addCriteria("Have HS diploma or GED");
-        techHire.addCriteria("Legally authorized to work in US");
-
-        techHire.addApplied(user2.getUsername());
-        techHire.addApplied(user3.getUsername());
-        techHire.addApplied(user4.getUsername());
-        techHire.addApplied(user5.getUsername());
-
-        techHire.addAccepted(user2.getUsername());
-        techHire.addAccepted(user3.getUsername());
-        techHire.addAccepted(user5.getUsername());
-
-        techHire.addAttending(user5.getName());
-
-        techHire.addUser(user2);
-        techHire.addUser(user3);
-        techHire.addUser(user4);
-        techHire.addUser(user5);
+        techHire.addCriteria("Interest in IT");
+        techHire.addCriteria("HS diploma/GED");
+        techHire.addCriteria("Can work in US");
         programRepository.save(techHire);
+//        techHire.addApplied(user2.getUsername());
+//        techHire.addApplied(user3.getUsername());
+//        techHire.addApplied(user4.getUsername());
+//        techHire.addApplied(user5.getUsername());
+//
+//        techHire.addAccepted(user2.getUsername());
+//        techHire.addAccepted(user3.getUsername());
+//        techHire.addAccepted(user5.getUsername());
+//
+//        techHire.addAttending(user5.getName());
+//
+//        techHire.addUser(user2);
+//        techHire.addUser(user3);
+//        techHire.addUser(user4);
+//        techHire.addUser(user5);
+//        programRepository.save(techHire);
 
 //Promising the Future
         Program promisingTheFuture=new Program();
-        promisingTheFuture.setName("Promising the Future");
-        promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day (9 am - 5 pm, M-F)" +
-                " 8-week, immersive software engineering program funded by the Department of Labor. This course " +
-                "aims to increase the number of skilled software developers in this country. We do this by " +
-                "accepting qualified candidates who cannot afford the cost of a coding boot camp. If accepted into" +
-                " the program all fees will be covered by the program.");
-        promisingTheFuture.addCriteria("Basic understanding of Object Oriented Programming");
-        promisingTheFuture.addCriteria("Previous experience with Object Oriented Programming");
-        promisingTheFuture.addCriteria("Major in Computer Science or Information Systems");
-        promisingTheFuture.addCriteria("Graduated within last 6 years");
-        promisingTheFuture.addCriteria("Salary Under 42k Cutoff");
-        promisingTheFuture.addCriteria("Legally authorized to work in US");
-
-        promisingTheFuture.addApplied(user2.getUsername());
-        promisingTheFuture.addApplied(user3.getUsername());
-        promisingTheFuture.addApplied(user4.getUsername());
-
-        promisingTheFuture.addAccepted(user2.getUsername());
-        promisingTheFuture.addAccepted(user3.getUsername());
-        promisingTheFuture.addAccepted(user4.getUsername());
-
-        promisingTheFuture.addAttending(user2.getUsername());
-        promisingTheFuture.addAttending(user3.getUsername());
-
-        promisingTheFuture.addUser(user2);
-        promisingTheFuture.addUser(user3);
-        promisingTheFuture.addUser(user4);
         programRepository.save(promisingTheFuture);
+        promisingTheFuture.setName("Promising the Future");
+        promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day" +
+                " 8-week, immersive software engineering program funded by the Department of Labor. This course " +
+                "aims to increase the number of skilled software developers in this country.");
+        promisingTheFuture.addCriteria("Understanding OOP");
+        promisingTheFuture.addCriteria("Experience with OOP");
+        promisingTheFuture.addCriteria("Major in CS/IS");
+        promisingTheFuture.addCriteria("Recent Grad");
+        promisingTheFuture.addCriteria("Salary Under Cutoff");
+        promisingTheFuture.addCriteria("Can work in US");
+
+        programRepository.save(promisingTheFuture);
+//        promisingTheFuture.addApplied(user2.getUsername());
+//        promisingTheFuture.addApplied(user3.getUsername());
+//        promisingTheFuture.addApplied(user4.getUsername());
+//
+//        promisingTheFuture.addAccepted(user2.getUsername());
+//        promisingTheFuture.addAccepted(user3.getUsername());
+//        promisingTheFuture.addAccepted(user4.getUsername());
+//
+//        promisingTheFuture.addAttending(user2.getUsername());
+//        promisingTheFuture.addAttending(user3.getUsername());
+//
+//        promisingTheFuture.addUser(user2);
+//        promisingTheFuture.addUser(user3);
+//        promisingTheFuture.addUser(user4);
+//        programRepository.save(promisingTheFuture);
 
     }
 }

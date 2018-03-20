@@ -252,7 +252,7 @@ public class User {
             this.criteria.add("English Language Learner");
         }
         if(this.salaryUnderCutoff.equalsIgnoreCase("yes")){
-            this.criteria.add("Salary Under 42k Cutoff");
+            this.criteria.add("Salary Under Cutoff");
         }
         if(this.underemployed.equalsIgnoreCase("yes")){
             this.criteria.add("Underemployed");
@@ -264,25 +264,25 @@ public class User {
             this.criteria.add("Comfortable with Computers");
         }
         if(this.interestIT.equalsIgnoreCase("yes")){
-            this.criteria.add("Strong Interest in IT");
+            this.criteria.add("Interest in IT");
         }
         if(this.hsGed.equalsIgnoreCase("yes")){
-            this.criteria.add("Have HS diploma or GED");
+            this.criteria.add("HS diploma/GED");
         }
         if(this.workInUs.equalsIgnoreCase("yes")){
-            this.criteria.add("Legally authorized to work in US");
+            this.criteria.add("Can work in US");
         }
         if(this.understandOOP.equalsIgnoreCase("yes")){
-            this.criteria.add("Basic understanding of Object Oriented Programming");
+            this.criteria.add("Understanding OOP");
         }
         if(this.expOOP.equalsIgnoreCase("yes")){
-            this.criteria.add("Previous experience with Object Oriented Programming");
+            this.criteria.add("Experience with OOP");
         }
         if(this.correctMajor.equalsIgnoreCase("yes")){
-            this.criteria.add("Major in Computer Science or Information Systems");
+            this.criteria.add("Major in CS/IS");
         }
         if(this.recentGrad.equalsIgnoreCase("yes")){
-            this.criteria.add("Graduated within last 6 years");
+            this.criteria.add("Recent Grad");
         }
     }
 

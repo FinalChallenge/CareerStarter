@@ -2,6 +2,7 @@ package com.example.fc;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -36,6 +37,7 @@ public class Program {
     private Set<User> users;
 
     public Program() {
+        this.users = new HashSet<>();
     }
 
 
