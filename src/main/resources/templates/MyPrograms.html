@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-    <!--<link href="/css/stylesheet.css" type="text/css" rel="stylesheet"/>-->
+    <link href="/css/style.css" rel="stylesheet"/>
     <title>Final Challenge</title>
     <!--Sunny-->
 </head>
 <body>
 <div th:replace="Base :: navlinks"></div>
-<div class="jumbotron jumbotron-fluid">
+<!--<div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h4>Qualifying Programs</h4>
         <table class="table">
@@ -29,16 +29,40 @@
                 <td th:text="${program.description}"></td>
                 <td th:text="${program.criteria}"></td>
 
-                <!--user id and program id-->
+                &lt;!&ndash;user id and program id&ndash;&gt;
 
             </tr>
             </tbody>
         </table>
 
     </div>
+</div>-->
+
+<div class="container">
+
+    <span><h4>Qualifying Programs</h4></span>
+
+    <div class="card-deck">
+        <div class="card" th:each="program : ${programs}">
+
+            <div class="card-body">
+
+                <div>
+                    <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
+                        <h5><Span th:text="${program.name}"></Span></h5>
+                        <b>Description</b><br/>
+                        <Span th:text="${program.description}"></Span><br/>
+                        <b>Description</b><br/>
+                        <Span th:text="${program.criteria}"></Span><br />
+                    </a>
+                </div><br/>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
-
-
 
 
 
