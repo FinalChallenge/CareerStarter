@@ -74,7 +74,7 @@ public class HomeController {
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        return "Register"; //See if should use Edit.html instead
+        return "Registration"; //See if should use Edit.html instead
     }
 
     //view program details
