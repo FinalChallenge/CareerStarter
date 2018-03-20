@@ -13,17 +13,30 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">Final Challenge</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" sec:authorize="isAnonymous()" href="/login" >Log in</a>
+                <li sec:authorize="isAnonymous()" class="nav-item">
+                    <a class="nav-link" href="/login" >Login</a>
                 </li>
-                <li th:class="nav-item">
+                <li sec:authorize="isAnonymous()" th:class="nav-item">
                     <a class="nav-link" sec:authorize="isAnonymous()" href="/register">Register</a>
                 </li>
-                <li class="nav-item">
-                    <a th:href="@{/logout?logout}" class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()">Log Out</a>
+                <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
+
+                <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
+                    <a class="nav-link" href="/allprograms">All Programs</a>
+                </li>
+
+                <li sec:authorize="hasAuthority('USER')" class="nav-item">
+                    <a class="nav-link" href="/myprograms">My Programs</a>
+                </li>
+
+                <li sec:authorize="hasAuthority('USER')" class="nav-item">
+                    <a class="nav-link" href="/user/edit">Edit User Profile</a>
+                </li>
+
             </ul>
         </nav>
     </div>

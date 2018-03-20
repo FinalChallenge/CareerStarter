@@ -13,28 +13,22 @@
 <div th:replace="Base :: navlinks"></div>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-
+        <h4>All Programs</h4>
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col"></th>
-                <th scope="col">Actions</th>
+                <th scope="col">Program Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Criteria</th>
 
             </tr>
             </thead>
             <tbody>
             <tr th:each="program : ${programs}">
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.email}"></td>
-                <td th:text="${user.criteria}"></td>
-                <td>
-                    <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
-                        <input type="hidden" name="programid" th:value="${programid}">
-                        <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
-                    </form>
-                </td>
+                <td th:text="${program.name}"></td>
+                <td th:text="${program.description}"></td>
+                <td th:text="${program.criteria}"></td>
+
                 <!--user id and program id-->
 
             </tr>
