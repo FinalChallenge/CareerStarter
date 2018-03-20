@@ -26,7 +26,7 @@
 
 
         <div>
-            <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
+            <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{id} (id=${program.id})}" method="post">
             <input type="hidden" name="programid" th:value="${programid}">
             <button class="btn btn-primary btn-large" type="submit" >Apply</button>
             </form>

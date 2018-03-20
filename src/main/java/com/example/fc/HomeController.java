@@ -114,10 +114,10 @@ public class HomeController {
 //        return "AdminTools";
 //    }
 //////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
-    @PostMapping("/apply/{programid}/{id}")
-    public String applyToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
-        User user = userRepository.findOne(id);
-        Program program = programRepository.findOne(programid);
+    @PostMapping("/apply/{id}")
+    public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
+        User user = userRepository.findByUsername(auth.getName());
+        Program program = programRepository.findOne(id);
         program.addUser(user);
         program.addApplied(user.getUsername());
         programRepository.save(program);
@@ -126,10 +126,10 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PostMapping("/attending/{programid}/{id}")
-    public String attendToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
-        User user = userRepository.findOne(id);
-        Program program = programRepository.findOne(programid);
+    @PostMapping("/attending/{id}")
+    public String attendToProgram(@PathVariable("id") long id, Model model, Authentication auth){
+        User user = userRepository.findByUsername(auth.getName());
+        Program program = programRepository.findOne(id);
         program.addAttending(user.getUsername());
         programRepository.save(program);
         return "redirect:/";
