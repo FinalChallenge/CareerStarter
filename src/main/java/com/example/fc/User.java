@@ -85,6 +85,28 @@ public class User {
         this.criteria = new ArrayList<String>();
     }
 
+    public User(String email, String username, String password, String name, String englishLL, String workInUs, String understandOOP, String expOOP, String correctMajor, String recentGrad, String salaryUnderCutoff, String hsGed, String interestIT, String comfComp, String unemployed, String underemployed) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.criteria = new ArrayList<String>();
+        this.englishLL = englishLL;
+        this.workInUs = workInUs;
+        this.understandOOP = understandOOP;
+        this.expOOP = expOOP;
+        this.correctMajor = correctMajor;
+        this.recentGrad = recentGrad;
+        this.salaryUnderCutoff = salaryUnderCutoff;
+        this.hsGed = hsGed;
+        this.interestIT = interestIT;
+        this.comfComp = comfComp;
+        this.unemployed = unemployed;
+        this.underemployed = underemployed;
+        this.roles = new HashSet<>();
+        this.programs = new HashSet<>();
+    }
+
 
     public long getId() {
         return id;

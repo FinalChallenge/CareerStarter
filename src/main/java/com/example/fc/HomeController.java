@@ -74,7 +74,15 @@ public class HomeController {
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        return "Registration"; //See if should use Edit.html instead
+        return "Edit"; //Use Registration.html until Edit is fixed
+    }
+    @PostMapping("/user/edit")
+    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
+        if(result.hasErrors()){
+            return "Edit";
+        }
+        userRepository.save(user);
+        return "redirect:/myprograms";
     }
 
     //view program details
