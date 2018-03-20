@@ -37,6 +37,12 @@
             <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
             <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
         </div>
+        <div class="col-3">
+            <label id="labelPassword">Password</label>
+            <input type="text" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div><br/>
+
         <div class="checkbox">
             <input type="checkbox" th:field="*{englishLL}" value="Yes"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
         </div><br />
