@@ -102,14 +102,14 @@ public class DataLoader implements CommandLineRunner {
         techHire.addCriteria("Have HS diploma or GED");
         techHire.addCriteria("Legally authorized to work in US");
 
-        techHire.addApplied(user2.getName());
-        techHire.addApplied(user3.getName());
-        techHire.addApplied(user4.getName());
-        techHire.addApplied(user5.getName());
+        techHire.addApplied(user2.getUsername());
+        techHire.addApplied(user3.getUsername());
+        techHire.addApplied(user4.getUsername());
+        techHire.addApplied(user5.getUsername());
 
-        techHire.addAccepted(user2.getName());
-        techHire.addAccepted(user3.getName());
-        techHire.addAccepted(user5.getName());
+        techHire.addAccepted(user2.getUsername());
+        techHire.addAccepted(user3.getUsername());
+        techHire.addAccepted(user5.getUsername());
 
         techHire.addAttending(user5.getName());
 
