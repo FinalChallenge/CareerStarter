@@ -89,16 +89,28 @@ public class HomeController {
         model.addAttribute("program", program);
         return "AdminTools";
     }
-
+/////////////////////////////////////////////////////////////
 ///Look at the programs user applied to, status of those applications
     @GetMapping("/user/programs")
     public String applied(Authentication auth, Model model) {
         User user = userRepository.findByUsername(auth.getName());
+        Set<Program> programs = user.getPrograms();
+        for(Program thisProgram : programs){
+            if (thisProgram.getAttending().contains(user.getName())){
+                thisProgram.setStatus("Attending");
+            } else if (thisProgram.getAccepted().contains(user.getName())){
+                thisProgram.setStatus("Accepted");
+            } else if (thisProgram.getApplied().contains(user.getName())){
+                thisProgram.setStatus("Applied");
+            } else {
+                thisProgram.setStatus("Error");
+            }
+        }
         model.addAttribute("programs", user.getPrograms());
         return "Applied";
     }
 
-
+///////////////////////////////////////////////////////////////////////
     @PostMapping("/apply/{programid}/{id}")
     public String applyToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model){
         User user = userRepository.findOne(id);
@@ -128,13 +140,14 @@ public class HomeController {
     }
 
 
-///////////////************///////////////////////////////
+///////////////************//////////////////////////////////////////////////////
     public Set<Program> findPrograms(User user){
         Set<Program> programs = new HashSet<>();
         ////check if user matches any program criteria
         for(Program program : programRepository.findAll()){
             if(compareArrays(user, program.getCriteria()) == true){
                 programs.add(program);
+                user.addProgram(program);
             }
         }
         return programs;
@@ -153,5 +166,8 @@ public class HomeController {
         }
         return flag;
     }
+
+
+
 
 }

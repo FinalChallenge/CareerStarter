@@ -17,6 +17,9 @@ public class Program {
     private String description;
 
     @Column
+    private String status;
+
+    @Column
     private ArrayList<String> criteria = new ArrayList<String>();
 
     @Column
@@ -111,4 +114,19 @@ public class Program {
         this.applied.add(name);
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
