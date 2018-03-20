@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -132,11 +133,25 @@ public class HomeController {
         Set<Program> programs = new HashSet<>();
         ////check if user matches any program criteria
         for(Program program : programRepository.findAll()){
-            for(String crit : program.getCriteria()){
-               // if()
+            if(compareArrays(user, program.getCriteria()) == true){
+                programs.add(program);
             }
-            ///add to programs
         }
         return programs;
     }
+
+    public Boolean compareArrays(User user, ArrayList<String> programCriteria){
+        Boolean flag = false;
+        ArrayList<String> userCriteria = user.getCriteria();
+        if(userCriteria.isEmpty() || programCriteria.isEmpty()){
+            return false;
+        }
+        for(String criteria : programCriteria){
+            if (userCriteria.contains(criteria)){
+               flag = true;
+            }
+        }
+        return flag;
+    }
+
 }

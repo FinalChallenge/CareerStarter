@@ -291,7 +291,7 @@ public class User {
         return criteria;
     }
 
-    
+
 
     public void setCriteria(ArrayList<String> criteria) {
         this.criteria = criteria;
