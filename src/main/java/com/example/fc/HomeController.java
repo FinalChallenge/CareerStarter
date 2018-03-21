@@ -82,7 +82,7 @@ public class HomeController {
             return "Edit";
         }
         userRepository.save(user);
-        return "redirect:/myprograms";
+        return "redirect:/";
     }
 
     //view program details

@@ -12,13 +12,83 @@
 <body>
 <div th:replace="Base :: navlinks"></div>
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="container" >
+        <h5>Edit profile</h5>
+        <form action="#"
+              th:action="@{/user/edit}"
+              th:object="${user}"
+              method="post">
+            <div class="col-3">
+                <input type="hidden" th:field="*{id}" />
+            </div>
+            <div class="col-3">
+                <input type="hidden" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
+            </div><br/>
 
+            <div class="col-3">
+                <input type="hidden" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
+            </div>
+            <div class="col-3">
+                <input type="hidden" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
+            </div>
+            <div class="col-3">
+                <input type="hidden" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
+            </div><br/>
 
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{englishLL}" value="Yes"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
+            </div><br />
 
-    </div>
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{workInUs}" value="Yes"/> <label id="labelWork"> Are able to work in the US?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{understandOOP}" value="Yes"/><label id="labelOOP"> Do you have basic understanding of Object Oriented Programming?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{expOOP}" value="Yes"/><label id="labelExp"> Do you have a previous experience in Object Oriented Programming?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{correctMajor}" value="Yes"/><label id="labelMajor"> Is your major Computer Science/Information Systems?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{recentGrad}" value="Yes"/><label id="labelRecentGrad"> Are you graduated within the last 6 years?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{salaryUnderCutoff}" value="Yes"/><label id="labelSalary"> Are you currently earning 42,000 or less?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{hsGed}" value="Yes"/><label id="labelGED"> Do you have a high school diploma or GED?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{interestIT}" value="Yes"/><label id="labelInterest"> Do you have a strong interest in IT career?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{comfComp}" value="Yes"/><label id="labelComputerUsage"> Are you comfortable using computers for everyday purposes?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{unemployed}" value="Yes"/> <label id="labelUnemployed"> Are you unemployed with barriers to employment?</label>
+            </div><br/>
+
+            <div class="checkbox">
+                <input type="checkbox" th:field="*{underemployed}" value="Yes"/><label id="labelUnderemployed"> Are you underemployed with barriers to better employment?</label>
+            </div><br/>
+
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
 </div>
-
+</div>
 
 
 
