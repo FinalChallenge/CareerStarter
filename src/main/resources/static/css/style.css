@@ -1,0 +1,16 @@
+/*.block-link {
+    display: block;
+
+}*/
+
+.card-deck {
+    /*column-count: 2;*/
+    display: flex;
+}
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
