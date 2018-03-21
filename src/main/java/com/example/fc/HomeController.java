@@ -130,6 +130,7 @@ public class HomeController {
         program.addApplied(user.getUsername());
         programRepository.save(program);
         user.addProgram(program);
+//        program.setStatus("Applied");
         userRepository.save(user);
         return "redirect:/";
     }
@@ -147,7 +148,7 @@ public class HomeController {
 
     /////////Accept student into program///////////////////////////////////////
     @PostMapping("/accept/{programid}/{id}")
-    public String acceptToProgram(@PathVariable("id") long id, @RequestParam("programid") long programid, Model model) {
+    public String acceptToProgram(@PathVariable("id") long id, @PathVariable("programid") long programid, Model model) {
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
         program.addAccepted(user.getUsername());
@@ -160,6 +161,7 @@ public class HomeController {
     public String viewApplicants(Model model, @PathVariable("id") long id){
         Program program = programRepository.findOne(id);
         model.addAttribute("users", program.getUsers());
+        model.addAttribute("program", program);
         return "Applicants";
     }
 

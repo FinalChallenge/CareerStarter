@@ -29,13 +29,25 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.criteria}"></td>
-                <td>
-                  <!--  <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
-                        <input type="hidden" name="programid" th:value="${programid}">
+                <!--<td>
+                    <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
+                        <input type="hidden" name="programid" th:value="${programid}"/>
                         <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
-                    </form>-->
+                    </form>
+                </td>-->
+                
+                <td >
+                    <div>
+                    <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${program.id})}" method="post">
+                        <!--<input type="hidden" name="programid" th:value="${programid}"/>-->
+                        <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
+                    </form>
+                    </div>
+
+
                 </td>
                 <!--user id and program id-->
+
 
             </tr>
             </tbody>

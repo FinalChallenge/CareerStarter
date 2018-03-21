@@ -23,11 +23,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="program : ${program}">
+            <tr th:each="program : ${programs}">
                 <td th:text="${program.name}"></td>
-                <!--<td th:text="${program.status}"></td>-->
+                <td th:text="${program.status}"></td>
 
-                <td th:if="${program.status}=='Accepted'">
+                <!--<td th:if="${program.status}=='Accepted'">-->
+                <td>
                     <form action="#"
                           th:action="@{/attending}"
                           th:object="${user}"
