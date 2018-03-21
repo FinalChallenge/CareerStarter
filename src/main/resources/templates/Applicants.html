@@ -30,10 +30,10 @@
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.criteria}"></td>
                 <td>
-                    <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
+                  <!--  <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${programid})}" method="post">
                         <input type="hidden" name="programid" th:value="${programid}">
                         <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
-                    </form>
+                    </form>-->
                 </td>
                 <!--user id and program id-->
 
