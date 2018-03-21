@@ -30,8 +30,8 @@
                 <!--<td th:if="${program.status}=='Accepted'">-->
                 <td>
                     <form action="#"
-                          th:action="@{/attending}"
-                          th:object="${user}"
+                          th:action="@{/attending/{id} (id=${program.id})}"
+                          th:object="${program}"
                           method="post">
                         <button class="btn btn-primary btn-large" type="submit">Accept</button>
                     </form>

@@ -130,7 +130,6 @@ public class HomeController {
         program.addApplied(user.getUsername());
         programRepository.save(program);
         user.addProgram(program);
-//        program.setStatus("Applied");
         userRepository.save(user);
         return "redirect:/";
     }
@@ -152,6 +151,7 @@ public class HomeController {
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
         program.addAccepted(user.getUsername());
+//        program.setStatus("Accepted");
         programRepository.save(program);
         return "redirect:/";
     }

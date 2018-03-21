@@ -35,7 +35,7 @@
                         <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
                     </form>
                 </td>-->
-                
+
                 <td >
                     <div>
                     <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${program.id})}" method="post">
