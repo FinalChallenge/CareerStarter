@@ -15,6 +15,7 @@ public class Program {
     @Column
     private String name;
 
+    @Lob
     @Column
     private String description;
 
@@ -25,7 +26,7 @@ public class Program {
 
     private int numAccepted;
 
-
+    @Lob
     @Column
     private ArrayList<String> criteria = new ArrayList<String>();
 

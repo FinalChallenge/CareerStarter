@@ -147,9 +147,12 @@ public class DataLoader implements CommandLineRunner {
         programRepository.save(techHire);
         techHire.setName("Hiring in Tech");
 
-        techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training" +
-                " program for those interested in careers in computers and Information Technology.");
-
+      /*  techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training" +
+                " program for those interested in careers in computers and Information Technology.");*/
+        techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training program for those" +
+                " interested in careers in computers and Information Technology (IT). Based on your skills, experience," +
+                " and English level, you may be able to enter one or more tracks that will help you further your" +
+                " education and training and find a job.");
         techHire.addCriteria("englishLL");
         techHire.addCriteria("unemployed");
         techHire.addCriteria("underemployed");
@@ -179,9 +182,14 @@ public class DataLoader implements CommandLineRunner {
         Program promisingTheFuture=new Program();
         programRepository.save(promisingTheFuture);
         promisingTheFuture.setName("Promising the Future");
-        promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day" +
+       /* promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day" +
                 " 8-week, immersive software engineering program funded by the Department of Labor. This course " +
-                "aims to increase the number of skilled software developers in this country.");
+                "aims to increase the number of skilled software developers in this country.");*/
+        promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day (9 am - 5 pm, M-F)" +
+                " 8-week, immersive software engineering program funded by the Department of Labor. This course aims" +
+                " to increase the number of skilled software developers in this country. We do this by accepting" +
+                " qualified candidates who cannot afford the cost of a coding boot camp. If accepted into the program" +
+                " all fees will be covered by the program.");
         promisingTheFuture.addCriteria("understandOOP");
         promisingTheFuture.addCriteria("expOOP");
         promisingTheFuture.addCriteria("correctMajor");
