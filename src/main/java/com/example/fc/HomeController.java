@@ -48,9 +48,16 @@ public class HomeController {
             return "Registration";
         }
         user.addRole(roleRepository.findByRoleName("USER"));
+        String [] temp = (user.getCriteria().split("&"));
+        System.out.println(temp.toString());
+        for(String i : temp){
+            System.out.print(i.substring(9));
+            user.addCriteria(i.substring(9));
+        }
+        System.out.println(user.getCriterias());
         userRepository.save(user);
-        user.findCriteria();
-        userRepository.save(user);
+//        user.setCriteria();
+//        userRepository.save(user);
         return "redirect:/login";
     }
 
@@ -62,14 +69,14 @@ public class HomeController {
 
 ////////////////USER/////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
-    //matched based on criteria
-    @GetMapping("/myprograms")
-    public String myPrograms(Model model, Authentication auth){
-        User user = userRepository.findByUsername(auth.getName());
-        Set<Program> programs = findPrograms(user);
-        model.addAttribute("programs", programs);
-        return "MyPrograms";
-    }
+//    //matched based on criteria
+//    @GetMapping("/myprograms")
+//    public String myPrograms(Model model, Authentication auth){
+//        User user = userRepository.findByUsername(auth.getName());
+//        Set<Program> programs = findPrograms(user);
+//        model.addAttribute("programs", programs);
+//        return "MyPrograms";
+//    }
 
     //edit user info
     @GetMapping("/user/edit")
@@ -111,19 +118,11 @@ public class HomeController {
             } else {
                 thisProgram.setStatus("Error");
             }
-
         }
         model.addAttribute("programs", programs);
         return "Applied";
     }
 
-    //////[possibly merge this with the above method and have the admin tools hidden to users]
-//    @GetMapping("/admin/course/{id}")
-//    public String adminTools(@PathVariable("id") long id, Model model) {
-//        Program program = programRepository.findOne(id);
-//        model.addAttribute("program", program);
-//        return "AdminTools";
-//    }
 //////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
     @PostMapping("/apply/{id}")
     public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
@@ -134,7 +133,7 @@ public class HomeController {
         programRepository.save(program);
         user.addProgram(program);
         userRepository.save(user);
-        return "redirect:/";
+        return "redirect:/user/programs";
     }
 
     @PostMapping("/attending/{id}")
@@ -143,7 +142,7 @@ public class HomeController {
         Program program = programRepository.findOne(id);
         program.addAttending(user.getUsername());
         programRepository.save(program);
-        return "redirect:/";
+        return "redirect:/user/programs";
     }
 /////////////////ADMIN ONLY/////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,31 +194,33 @@ public class HomeController {
 
 ///////////////************//////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
-    public Set<Program> findPrograms(User user){
-        Set<Program> programs = new HashSet<>();
-        ////check if user matches any program criteria
-        for(Program program : programRepository.findAll()){
-            if(compareArrays(user, program.getCriteria()) == true){
-                programs.add(program);
-                user.addProgram(program);
-            }
-        }
-        return programs;
-    }
-
-    public Boolean compareArrays(User user, ArrayList<String> programCriteria){
-        Boolean flag = false;
-        ArrayList<String> userCriteria = user.getCriteria();
-        if(userCriteria.isEmpty() || programCriteria.isEmpty()){
-            return false;
-        }
-        for(String criteria : programCriteria){
-            if (userCriteria.contains(criteria)){
-               flag = true;
-            }
-        }
-        return flag;
-    }
+//    public Set<Program> findPrograms(User user){
+//        Set<Program> programs = new HashSet<>();
+//        ////check if user matches any program criteria
+//        for(Program program : programRepository.findAll()){
+//            if(compareArrays(user, program.getCriteria()) == true){
+//                System.out.println("matched criteria");
+//                programs.add(program);
+//                user.addProgram(program);
+//            }
+//        }
+//        return programs;
+//    }
+//
+//    public Boolean compareArrays(User user, ArrayList<String> programCriteria){
+//        Boolean flag = false;
+//        ArrayList<String> userCriteria = user.getCriteria();
+//        if(userCriteria.isEmpty() || programCriteria.isEmpty()){
+//            return false;
+//        }
+//        for(String criteria : programCriteria){
+//            if (userCriteria.contains(criteria)){
+//               flag = true;
+//            }
+//        }
+//        System.out.println(flag);
+//        return flag;
+//    }
 
 
 

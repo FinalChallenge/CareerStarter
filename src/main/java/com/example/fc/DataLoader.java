@@ -31,45 +31,45 @@ public class DataLoader implements CommandLineRunner {
         Role adminRole = roleRepository.findByRoleName("ADMIN");
         Role userRole = roleRepository.findByRoleName("USER");
 
-//User One
-        User user1=new User("admin1@wdce.com", "Dave", "password", "Dave Wolf", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user1.addRole(adminRole);
-        userRepository.save(user1);
-
-//User One
-        User user2=new User("admin2@wdce.com", "Afua", "password", "Afua Ankomah", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user2.addRole(adminRole);
-        userRepository.save(user2);
-
-//User Three
-        User user3=new User("student1@wdce.com", "Saniya", "password", "Saniya Godil", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user3.addRole(userRole);
-        userRepository.save(user3);
-
-//User Four
-        User user4=new User("student2@wdce.com", "Addis", "password", "Addisalem Wondie", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user4.addRole(userRole);
-        userRepository.save(user4);
-
-//User Five
-        User user5=new User("student3@wdce.com", "John", "password", "John Doe", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user5.addRole(userRole);
-        userRepository.save(user5);
-
-//User Six
-        User user6=new User("student4@wdce.com", "Sam", "password", "Sam Brown", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user5.addRole(userRole);
-        userRepository.save(user6);
-
-//User Seven
-        User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user7.addRole(userRole);
-        userRepository.save(user7);
-
-//User Eight
-        User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-        user8.addRole(userRole);
-        userRepository.save(user8);
+////User One
+//        User user1=new User("admin1@wdce.com", "Dave", "password", "Dave Wolf", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user1.addRole(adminRole);
+//        userRepository.save(user1);
+//
+////User One
+//        User user2=new User("admin2@wdce.com", "Afua", "password", "Afua Ankomah", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user2.addRole(adminRole);
+//        userRepository.save(user2);
+//
+////User Three
+//        User user3=new User("student1@wdce.com", "Saniya", "password", "Saniya Godil", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user3.addRole(userRole);
+//        userRepository.save(user3);
+//
+////User Four
+//        User user4=new User("student2@wdce.com", "Addis", "password", "Addisalem Wondie", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user4.addRole(userRole);
+//        userRepository.save(user4);
+//
+////User Five
+//        User user5=new User("student3@wdce.com", "John", "password", "John Doe", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user5.addRole(userRole);
+//        userRepository.save(user5);
+//
+////User Six
+//        User user6=new User("student4@wdce.com", "Sam", "password", "Sam Brown", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user5.addRole(userRole);
+//        userRepository.save(user6);
+//
+////User Seven
+//        User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user7.addRole(userRole);
+//        userRepository.save(user7);
+//
+////User Eight
+//        User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
+//        user8.addRole(userRole);
+//        userRepository.save(user8);
 
 //Programs
 //Hiring in Tech

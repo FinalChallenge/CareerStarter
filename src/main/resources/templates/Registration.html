@@ -11,10 +11,7 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container" >
     <h5>New User Registration</h5>
-    <form action="#"
-          th:action="@{/register}"
-          th:object="${user}"
-          method="post">
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
         <div class="col-3">
             <input type="hidden" th:field="*{id}" />
         </div>
@@ -41,65 +38,126 @@
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
         </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="englishLL" value="No" />
-            <input type="checkbox" th:field="*{englishLL}" value="Yes"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
-        </div><br />
+        <fieldset>
+            <legend>Choose relevant criteria</legend>
+            <div class="checkbox">
+                <input type="hidden" id="codingab" name="criteria" value="codingab" checked="checked" />
 
-        <div class="checkbox">
-            <input type="hidden" name="workInUs" value="No" />
-            <input type="checkbox" th:field="*{workInUs}" value="Yes"/> <label id="labelWork"> Are able to work in the US?</label>
-        </div><br/>
+            </div>
+            <div>
+                <input type="checkbox" id="workInUs" name="criteria" value="workInUs"/>
+                <label for="workInUs">Ability to work in United States</label>
+            </div>
+            <div>
+                <input type="checkbox" id="englishLL" name="criteria" value="englishLL"/>
+                <label for="englishLL">English Language Learner</label>
+            </div>
+            <div>
+                <input type="checkbox" id="understandOOP" name="criteria" value="understandOOP"/>
+                <label for="understandOOP">Basic Understanding of Object Oriented Programming</label>
+            </div>
+            <div>
+                <input type="checkbox" id="expOOP" name="criteria" value="expOOP"/>
+                <label for="expOOP">Experience with Object Oriented Programming</label>
+            </div>
 
-        <div class="checkbox">
-            <input type="hidden" name="understandOOP" value="No" />
-            <input type="checkbox" th:field="*{understandOOP}" value="Yes"/><label id="labelOOP"> Do you have basic understanding of Object Oriented Programming?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="expOOP" value="No" />
-            <input type="checkbox" th:field="*{expOOP}" value="Yes"/><label id="labelExp"> Do you have a previous experience in Object Oriented Programming?</label>
-        </div><br/>
+            <div>
+                <input type="checkbox" id="correctMajor" name="criteria" value="correctMajor"/>
+                <label for="correctMajor">Majored in Computer Science or Information Systems</label>
+            </div>
+            <div>
+                <input type="checkbox" id="recentGrad" name="criteria" value="recentGrad"/>
+                <label for="recentGrad" >Graduated in the last 6 years</label>
+            </div>
+            <div>
+                <input type="checkbox" id="unemployed" name="criteria" value="unemployed"/>
+                <label for="unemployed">Unemployed</label>
+            </div>
+            <div>
+                <input type="checkbox" id="salaryUnderCutoff" name="criteria" value="salaryUnderCutoff"/>
+                <label for="salaryUnderCutoff">If Employed, make less than $42,000 a year</label>
+            </div>
 
-        <div class="checkbox">
-            <input type="hidden" name="correctMajor" value="No" />
-            <input type="checkbox" th:field="*{correctMajor}" value="Yes"/><label id="labelMajor"> Is your major Computer Science/Information Systems?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="recentGrad" value="No" />
-            <input type="checkbox" th:field="*{recentGrad}" value="Yes"/><label id="labelRecentGrad"> Are you graduated within the last 6 years?</label>
-        </div><br/>
+            <div>
+                <input type="checkbox" id="hsGed" name="criteria" value="hsGed"/>
+                <label for="hsGed">Graduated High School or Received GED</label>
+            </div>
+            <div>
+                <input type="checkbox" id="interestIT" name="criteria" value="interestIT"/>
+                <label for="interestIT">Strong interest in IT</label>
+            </div>
+            <div>
+                <input type="checkbox" id="comfComp" name="criteria" value="comfComp"/>
+                <label for="comfComp">Comfortable using computers</label>
+            </div>
+            <div>
+                <input type="checkbox" id="underemployed" name="criteria" value="underemployed"/>
+                <label for="underemployed">Underemployed</label>
+            </div>
 
-        <div class="checkbox">
-            <input type="hidden" name="salaryUnderCutoff" value="No" />
-            <input type="checkbox" th:field="*{salaryUnderCutoff}" value="Yes"/><label id="labelSalary"> Are you currently earning 42,000 or less?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="hsGed" value="No" />
-            <input type="checkbox" th:field="*{hsGed}" value="Yes"/><label id="labelGED"> Do you have a high school diploma or GED?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="interestIT" value="No" />
-            <input type="checkbox" th:field="*{interestIT}" value="Yes"/><label id="labelInterest"> Do you have a strong interest in IT career?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="comfComp" value="No" />
-            <input type="checkbox" th:field="*{comfComp}" value="Yes"/><label id="labelComputerUsage"> Are you comfortable using computers for everyday purposes?</label>
-        </div><br/>
+        </fieldset>
 
-        <div class="checkbox">
-            <input type="hidden" name="unemployed" value="No" />
-            <input type="checkbox" th:field="*{unemployed}" value="Yes"/> <label id="labelUnemployed"> Are you unemployed with barriers to employment?</label>
-        </div><br/>
 
-        <div class="checkbox">
-            <input type="hidden" name="underemployed" value="No" />
-            <input type="checkbox" th:field="*{underemployed}" value="Yes"/><label id="labelUnderemployed"> Are you underemployed with barriers to better employment?</label>
-        </div><br/>
+
+
+            <!--&lt;!&ndash;<input type="hidden" name="workInUs" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{workInUs}" value="Yes"/> <label id="labelWork"> Are able to work in the US?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="understandOOP" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{understandOOP}" value="Yes"/><label id="labelOOP"> Do you have basic understanding of Object Oriented Programming?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="expOOP" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{expOOP}" value="Yes"/><label id="labelExp"> Do you have a previous experience in Object Oriented Programming?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="correctMajor" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{correctMajor}" value="Yes"/><label id="labelMajor"> Is your major Computer Science/Information Systems?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="recentGrad" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{recentGrad}" value="Yes"/><label id="labelRecentGrad"> Are you graduated within the last 6 years?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="salaryUnderCutoff" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{salaryUnderCutoff}" value="Yes"/><label id="labelSalary"> Are you currently earning 42,000 or less?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="hsGed" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{hsGed}" value="Yes"/><label id="labelGED"> Do you have a high school diploma or GED?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="interestIT" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{interestIT}" value="Yes"/><label id="labelInterest"> Do you have a strong interest in IT career?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="comfComp" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{comfComp}" value="Yes"/><label id="labelComputerUsage"> Are you comfortable using computers for everyday purposes?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="unemployed" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{unemployed}" value="Yes"/> <label id="labelUnemployed"> Are you unemployed with barriers to employment?</label>-->
+        <!--</div><br/>-->
+
+        <!--<div class="checkbox">-->
+            <!--&lt;!&ndash;<input type="hidden" name="underemployed" value="No" />&ndash;&gt;-->
+            <!--<input type="checkbox" th:field="*{underemployed}" value="Yes"/><label id="labelUnderemployed"> Are you underemployed with barriers to better employment?</label>-->
+        <!--</div><br/>-->
 
         <div class="col-3">
             <button type="submit" class="btn btn-primary">Submit</button>
