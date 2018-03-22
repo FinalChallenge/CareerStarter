@@ -100,11 +100,11 @@ public class HomeController {
         User user = userRepository.findByUsername(auth.getName());
         Set<Program> programs = user.getPrograms();
         for(Program thisProgram : programs){
-            if (thisProgram.getAttending().contains(user.getName())){
+            if (thisProgram.getAttending().contains(user.getUsername())){
                 thisProgram.setStatus("Attending");
-            } else if (thisProgram.getAccepted().contains(user.getName())){
+            } else if (thisProgram.getAccepted().contains(user.getUsername())){
                 thisProgram.setStatus("Accepted");
-            } else if (thisProgram.getApplied().contains(user.getName())){
+            } else if (thisProgram.getApplied().contains(user.getUsername())){
                 thisProgram.setStatus("Applied");
             } else {
                 thisProgram.setStatus("Error");
