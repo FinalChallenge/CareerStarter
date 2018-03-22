@@ -39,6 +39,68 @@ public class DataLoader implements CommandLineRunner {
         user1.setCriterias(criterias);
         userRepository.save(user1);
 
+//User Two
+        User user2=new User("admin2@wdce.com", "Afua", "password", "Afua Ankomah");
+        user2.addRole(adminRole);
+        userRepository.save(user2);
+
+//User Three
+        ArrayList<String> criterias1 =  new ArrayList<String>();
+        criterias1.add("workInUs");
+        criterias1.add("unemployed");
+        criterias1.add("underemployed");
+        criterias1.add("comfComp");
+        criterias1.add("interestIT");
+        criterias1.add("hsGed");
+        User user3=new User("student1@wdce.com", "Saniya", "password", "Saniya Godil");
+        user3.addRole(userRole);
+        user3.setCriterias(criterias1);
+        userRepository.save(user3);
+
+//User Four
+        User user4=new User("student2@wdce.com", "Addis", "password", "Addisalem Wondie");
+        user4.addRole(userRole);
+        user4.setCriterias(criterias1);
+        userRepository.save(user4);
+
+//User Five
+        ArrayList<String> criterias2 =  new ArrayList<String>();
+        criterias2.add("understandOOP");
+        criterias2.add("expOOP");
+        criterias2.add("correctMajor");
+        criterias2.add("recentGrad");
+        criterias2.add("salaryUnderCutoff");
+        criterias2.add("workInUs");
+        User user5=new User("student3@wdce.com", "John", "password", "John Doe");
+        user5.addRole(userRole);
+        user5.setCriterias(criterias2);
+        userRepository.save(user5);
+
+//User Six
+        User user6=new User("student4@wdce.com", "Sam", "password", "Sam Brown");
+        user6.addRole(userRole);
+        user6.setCriterias(criterias2);
+        userRepository.save(user6);
+
+//User Seven
+        ArrayList<String> criterias3 =  new ArrayList<String>();
+        criterias3.add("workInUs");
+        criterias3.add("unemployed");
+        criterias3.add("underemployed");
+        criterias3.add("understandOOP");
+        criterias3.add("expOOP");
+        criterias3.add("correctMajor");
+        User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank");
+        user7.addRole(userRole);
+        user7.setCriterias(criterias3);
+        userRepository.save(user7);
+
+//User Eight
+        User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether");
+        user8.addRole(userRole);
+        user8.setCriterias(criterias3);
+        userRepository.save(user8);
+
 ////User One
 //        User user1=new User("admin1@wdce.com", "Dave", "password", "Dave Wolf", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
 //        user1.addRole(adminRole);
