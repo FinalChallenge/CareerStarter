@@ -12,9 +12,7 @@
     <div class="container" >
     <h5>New User Registration</h5>
     <form action="#" th:action="@{/register}" th:object="${user}" method="post">
-        <div class="col-3">
-            <input type="hidden" th:field="*{id}" />
-        </div>
+        <input type="hidden" th:field="*{id}" />
 
         <div class="col-3">
             <label id="labelname">Name</label>
@@ -41,7 +39,7 @@
         <fieldset>
             <legend>Choose relevant criteria</legend>
             <div class="checkbox">
-                <input type="hidden" id="codingab" name="criteria" value="codingab" checked="checked" />
+                <input type="hidden" id="Criteria" name="criteria" value="Criteria" checked="checked" />
 
             </div>
             <div>

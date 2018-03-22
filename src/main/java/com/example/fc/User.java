@@ -87,12 +87,14 @@ public class User {
         this.criterias = new ArrayList<String>();
     }
 
-    public User(String email, String username, String password, String name, ArrayList<String> criterias) {
+    public User(String email, String username, String password, String name) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.criterias = criterias;
+        this.programs = new HashSet<>();
+        this.roles = new HashSet<>();
+        this.criterias = new ArrayList<String>();
     }
 
 

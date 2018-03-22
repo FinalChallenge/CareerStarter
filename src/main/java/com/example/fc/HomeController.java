@@ -47,14 +47,16 @@ public class HomeController {
         if (result.hasErrors()) {
             return "Registration";
         }
-        user.addRole(roleRepository.findByRoleName("USER"));
-        String [] temp = (user.getCriteria().split("&"));
-        System.out.println(temp.toString());
-        for(String i : temp){
-            System.out.print(i.substring(9));
-            user.addCriteria(i.substring(9));
+        if(userRepository.findByUsername(user.getUsername()) == null){
+            user.addRole(roleRepository.findByRoleName("USER"));
+            userRepository.save(user);
         }
-        System.out.println(user.getCriterias());
+        ArrayList<String> thisCriterias =  new ArrayList<String>();
+        String [] temp = (user.getCriteria().split("&"));
+        for(String i : temp){
+            thisCriterias.add(i.substring(9));
+        }
+        user.setCriterias(thisCriterias);
         userRepository.save(user);
         return "redirect:/login";
     }
@@ -90,16 +92,16 @@ public class HomeController {
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        return "Edit"; //Use Registration.html until Edit is fixed
+        return "Registration"; //Use Registration.html until Edit is fixed
     }
-    @PostMapping("/user/edit")
-    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
-        if(result.hasErrors()){
-            return "Edit";
-        }
-        userRepository.save(user);
-        return "redirect:/";
-    }
+//    @PostMapping("/user/edit")
+//    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
+//        if(result.hasErrors()){
+//            return "Edit";
+//        }
+//        userRepository.save(user);
+//        return "redirect:/";
+//    }
 
     //view program details
     @GetMapping("/program/{id}")
