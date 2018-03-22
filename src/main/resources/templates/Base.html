@@ -23,6 +23,9 @@
                     <a class="nav-link" sec:authorize="isAnonymous()" href="/register">Register</a>
                 </li>
 
+                <li sec:authorize="hasAuthority('ADMIN')" th:class="nav-item">
+                    <a class="nav-link" href="/registeradmin">New Admin</a>
+                </li>
 
                 <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
                     <a class="nav-link" href="/allprograms">Programs</a>

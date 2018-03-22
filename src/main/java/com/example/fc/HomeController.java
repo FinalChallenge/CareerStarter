@@ -231,6 +231,23 @@ public class HomeController {
         return "Attending";
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    @GetMapping("/registeradmin")
+    public String registerAdmin(Model model){
+        model.addAttribute("user", new User());
+        return "AdminRegistration";
+    }
+
+    @PostMapping("/registeradmin")
+    public String registerAdmin(@Valid @ModelAttribute("user") User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "AdminRegistration";
+        }
+        user.addRole(roleRepository.findByRoleName("ADMIN"));
+        userRepository.save(user);
+        return "redirect:/logout";
+    }
+
 
 
 
