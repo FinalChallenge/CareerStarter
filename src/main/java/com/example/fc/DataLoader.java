@@ -80,13 +80,13 @@ public class DataLoader implements CommandLineRunner {
         techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training" +
                 " program for those interested in careers in computers and Information Technology.");
 
-        techHire.addCriteria("English Language Learner");
-        techHire.addCriteria("Unemployed");
-        techHire.addCriteria("Underemployed");
-        techHire.addCriteria("Comfortable with Computers");
-        techHire.addCriteria("Interest in IT");
-        techHire.addCriteria("HS diploma/GED");
-        techHire.addCriteria("Can work in US");
+        techHire.addCriteria("englishLL");
+        techHire.addCriteria("unemployed");
+        techHire.addCriteria("underemployed");
+        techHire.addCriteria("comfComp");
+        techHire.addCriteria("interestIT");
+        techHire.addCriteria("hsGed");
+        techHire.addCriteria("workInUs");
         programRepository.save(techHire);
 //        techHire.addApplied(user2.getUsername());
 //        techHire.addApplied(user3.getUsername());
@@ -112,12 +112,12 @@ public class DataLoader implements CommandLineRunner {
         promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day" +
                 " 8-week, immersive software engineering program funded by the Department of Labor. This course " +
                 "aims to increase the number of skilled software developers in this country.");
-        promisingTheFuture.addCriteria("Understanding OOP");
-        promisingTheFuture.addCriteria("Experience with OOP");
-        promisingTheFuture.addCriteria("Major in CS/IS");
-        promisingTheFuture.addCriteria("Recent Grad");
-        promisingTheFuture.addCriteria("Salary Under Cutoff");
-        promisingTheFuture.addCriteria("Can work in US");
+        promisingTheFuture.addCriteria("understandOOP");
+        promisingTheFuture.addCriteria("expOOP");
+        promisingTheFuture.addCriteria("correctMajor");
+        promisingTheFuture.addCriteria("recentGrad");
+        promisingTheFuture.addCriteria("salaryUnderCutoff");
+        promisingTheFuture.addCriteria("workInUs");
 
         programRepository.save(promisingTheFuture);
 //        promisingTheFuture.addApplied(user2.getUsername());

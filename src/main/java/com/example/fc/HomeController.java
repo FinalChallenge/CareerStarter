@@ -56,8 +56,6 @@ public class HomeController {
         }
         System.out.println(user.getCriterias());
         userRepository.save(user);
-//        user.setCriteria();
-//        userRepository.save(user);
         return "redirect:/login";
     }
 
@@ -69,14 +67,23 @@ public class HomeController {
 
 ////////////////USER/////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
-//    //matched based on criteria
-//    @GetMapping("/myprograms")
-//    public String myPrograms(Model model, Authentication auth){
-//        User user = userRepository.findByUsername(auth.getName());
-//        Set<Program> programs = findPrograms(user);
-//        model.addAttribute("programs", programs);
-//        return "MyPrograms";
-//    }
+    //matched based on criteria
+    @GetMapping("/myprograms")
+    public String myPrograms(Model model, Authentication auth) {
+        User user = userRepository.findByUsername(auth.getName());
+        Set<Program> programs = new HashSet<>();
+        ////check if user matches any program criteria
+        for (Program program : programRepository.findAll()) {
+            for (String criteria : program.getCriteria()) {
+                if(user.getCriterias().contains(criteria)){
+                    programs.add(program);
+                    user.addProgram(program);
+                }
+            }
+        }
+        model.addAttribute("programs", programs);
+        return "MyPrograms";
+    }
 
     //edit user info
     @GetMapping("/user/edit")
@@ -191,36 +198,6 @@ public class HomeController {
         model.addAttribute("users", users);
         return "Attending";
     }
-
-///////////////************//////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////
-//    public Set<Program> findPrograms(User user){
-//        Set<Program> programs = new HashSet<>();
-//        ////check if user matches any program criteria
-//        for(Program program : programRepository.findAll()){
-//            if(compareArrays(user, program.getCriteria()) == true){
-//                System.out.println("matched criteria");
-//                programs.add(program);
-//                user.addProgram(program);
-//            }
-//        }
-//        return programs;
-//    }
-//
-//    public Boolean compareArrays(User user, ArrayList<String> programCriteria){
-//        Boolean flag = false;
-//        ArrayList<String> userCriteria = user.getCriteria();
-//        if(userCriteria.isEmpty() || programCriteria.isEmpty()){
-//            return false;
-//        }
-//        for(String criteria : programCriteria){
-//            if (userCriteria.contains(criteria)){
-//               flag = true;
-//            }
-//        }
-//        System.out.println(flag);
-//        return flag;
-//    }
 
 
 
