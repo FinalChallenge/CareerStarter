@@ -87,6 +87,29 @@ public class HomeController {
         return "MyPrograms";
     }
 
+    public Set<User> meetRequirements(Set<User> users, Program thisProgram){
+        Set<User> rUsers = new HashSet<>();
+        for(User user : users){
+            for (String criteria : thisProgram.getCriteria()) {
+                if(user.getCriterias().contains(criteria)){
+                    rUsers.add(user);
+                }
+            }
+        }
+        return rUsers;
+    }
+    public Set<User> notMeetRequirements(Set<User> users, Set<User> reqUsers){
+        Set<User> nUsers = new HashSet<>();
+        for(User user : users){
+            if(! reqUsers.contains(user)){
+                nUsers.add(user);
+            }
+        }
+        return nUsers;
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
     //edit user info
     @GetMapping("/user/edit")
     public String editUser(Model model, Authentication auth) {
@@ -102,6 +125,7 @@ public class HomeController {
 //        userRepository.save(user);
 //        return "redirect:/";
 //    }
+/////////////////////////////////////////////////////////////////////////////////////////////
 
     //view program details
     @GetMapping("/program/{id}")
@@ -153,7 +177,9 @@ public class HomeController {
         programRepository.save(program);
         return "redirect:/user/programs";
     }
-/////////////////ADMIN ONLY/////////////////////////////////////////////////////////////////////////
+
+
+    /////////////////ADMIN ONLY/////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
     /////////Accept student into program///////////////////////////////////////
@@ -171,7 +197,10 @@ public class HomeController {
     @RequestMapping("/applicants/{id}")
     public String viewApplicants(Model model, @PathVariable("id") long id){
         Program program = programRepository.findOne(id);
-        model.addAttribute("users", program.getUsers());
+        Set<User> users = program.getUsers();
+        Set<User> reqUsers = meetRequirements(users, program);
+        model.addAttribute("reqUsers", reqUsers);
+        model.addAttribute("nUsers", notMeetRequirements(users, reqUsers));
         model.addAttribute("program", program);
         return "Applicants";
     }
