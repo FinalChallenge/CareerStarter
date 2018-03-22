@@ -248,6 +248,17 @@ public class HomeController {
         return "redirect:/logout";
     }
 
+    @RequestMapping ("/programssummary")
+    public String viewSummary(Model model){
+        Set<Program> programs = new HashSet<>();
+        for(Program program : programRepository.findAll()){
+            program.setNumApplicants(program.getApplied().size());
+            program.setNumAccepted(program.getAccepted().size());
+            programs.add(program);
+        }
+        model.addAttribute("programs", programs);
+        return "ProgramsSummary";
+    }
 
 
 

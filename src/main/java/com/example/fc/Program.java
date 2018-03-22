@@ -21,6 +21,11 @@ public class Program {
     @Column
     private String status;
 
+    private int numApplicants;
+
+    private int numAccepted;
+
+
     @Column
     private ArrayList<String> criteria = new ArrayList<String>();
 
@@ -131,5 +136,21 @@ public class Program {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getNumApplicants() {
+        return numApplicants;
+    }
+
+    public void setNumApplicants(int numApplicants) {
+        this.numApplicants = numApplicants;
+    }
+
+    public int getNumAccepted() {
+        return numAccepted;
+    }
+
+    public void setNumAccepted(int numAccepted) {
+        this.numAccepted = numAccepted;
     }
 }

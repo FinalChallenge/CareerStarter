@@ -39,6 +39,11 @@
                     <a class="nav-link" href="/user/edit">Edit User Information</a>
                 </li>
 
+                <li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
+                    <a class="nav-link" href="/programssummary">Summary of Programs</a>
+                </li>
+
+
 
                 <li sec:authorize="hasAuthority('USER')" class="nav-item">
                     <a class="nav-link" href="/user/programs">View Application Status</a>
