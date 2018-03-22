@@ -1,6 +1,8 @@
 package com.example.fc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ public class HomeController {
 
     @Autowired
     ProgramRepository programRepository;
+
+    @Autowired
+    private JavaMailSender emailSender;
 
     ///////////EVERYONE CAN SEE//////////////////////////////////////////////////
 
@@ -190,6 +195,14 @@ public class HomeController {
         program.addAccepted(user.getUsername());
 //        program.setStatus("Accepted");
         programRepository.save(program);
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject("Admission");
+        message.setText("Congratulation! " +
+                "You have been admitted for "+program.getName()+" course");
+        message.setTo(user.getEmail());
+        message.setFrom("mcjbc2018@gmail.com");
+
+        emailSender.send(message);
         return "redirect:/";
     }
     ////////////////////////////////////////////////////////////////////////////
