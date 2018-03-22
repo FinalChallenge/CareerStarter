@@ -199,6 +199,7 @@ public class HomeController {
         Program program = programRepository.findOne(id);
         Set<User> users = program.getUsers();
         Set<User> reqUsers = meetRequirements(users, program);
+        model.addAttribute("users", users);
         model.addAttribute("reqUsers", reqUsers);
         model.addAttribute("nUsers", notMeetRequirements(users, reqUsers));
         model.addAttribute("program", program);

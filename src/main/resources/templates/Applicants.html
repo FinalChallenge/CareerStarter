@@ -13,6 +13,38 @@
 <div th:replace="Base :: navlinks"></div>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
+        <h5>All Applicants</h5>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+                <th scope="col">Actions</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.criteria}"></td>
+
+                <td >
+                    <div>
+                        <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${user.id}, programid = ${program.id})}" method="post">
+                            <!--<input type="hidden" name="programid" th:value="${programid}"/>-->
+                            <button class="btn btn-primary btn-large" type="submit">Accept Student</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br />
+        <br />
+       
         <h5>Students that meet Requirements</h5>
         <table class="table">
             <thead>
