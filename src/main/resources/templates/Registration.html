@@ -8,8 +8,8 @@
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
-
-<div class="container" >
+<div class="jumbotron jumbotron-fluid">
+    <div class="container" >
     <h5>New User Registration</h5>
     <form action="#"
           th:action="@{/register}"
@@ -18,9 +18,7 @@
         <div class="col-3">
             <input type="hidden" th:field="*{id}" />
         </div>
-        <div class="col-3">
-            <label id="labelUserRegistration"><h5>User Registration</h5></label>
-        </div>
+
         <div class="col-3">
             <label id="labelname">Name</label>
             <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
@@ -108,8 +106,8 @@
         </div>
     </form>
 
+    </div>
 </div>
-
 </body>
 
 </html>

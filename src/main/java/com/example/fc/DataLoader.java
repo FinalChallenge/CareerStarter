@@ -22,21 +22,14 @@ public class DataLoader implements CommandLineRunner {
     ProgramRepository programRepository;
 
     @Override
-    public void run(String... strings) throws Exception{
+    public void run(String... strings) throws Exception {
 
         System.out.println("Loading data . . .");
         roleRepository.save(new Role("USER"));
-// roleRepository.save(new Role("STUDENT"));
         roleRepository.save(new Role("ADMIN"));
 
-        Role adminRole=roleRepository.findByRoleName("ADMIN");
-        Role userRole=roleRepository.findByRoleName("USER");
-// Role studentRole=roleRepository.findByRole("STUDENT");
-        Set<Role> role=new HashSet<>();
-        role.add(userRole);
-
-        Set<Role> admin=new HashSet<>();
-        admin.add(adminRole);
+        Role adminRole = roleRepository.findByRoleName("ADMIN");
+        Role userRole = roleRepository.findByRoleName("USER");
 
 //User One
         User user1=new User("admin1@wdce.com", "Dave", "password", "Dave Wolf", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );

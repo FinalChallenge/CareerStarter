@@ -27,8 +27,11 @@
                 <td th:text="${program.name}"></td>
                 <td th:text="${program.status}"></td>
 
-                <!--<td th:if="${program.status}=='Accepted'">-->
-                <td>
+
+
+
+
+                <td th:if="${program.status} == 'Accepted'">
                     <form action="#"
                           th:action="@{/attending/{id} (id=${program.id})}"
                           th:object="${program}"
