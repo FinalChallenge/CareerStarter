@@ -34,7 +34,9 @@
             <div class="col-3">
                 <input type="hidden" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
             </div><br/>
-            <!--th:value="${top.id}"-->
+            <div class="col-3">
+                <input type="hidden" class="form-control" id="criteria" th:field="*{criteria}"/>
+            </div><br/>
             <div class="checkbox">
                 <input type="checkbox" th:field="*{englishLL}" th:value="${user.englishLL}"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
             </div><br />

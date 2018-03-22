@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.tymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8" />
     <title>Base</title>
@@ -13,20 +13,19 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Final Challenge</a>
+                    <h2><a class="nav-link" href="/">Final Challenge</a></h2>
                 </li>
+
                 <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link" href="/login" >Login</a>
                 </li>
                 <li sec:authorize="isAnonymous()" th:class="nav-item">
                     <a class="nav-link" sec:authorize="isAnonymous()" href="/register">Register</a>
                 </li>
-                <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                </li>
+
 
                 <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
-                    <a class="nav-link" href="/allprograms">All Programs</a>
+                    <a class="nav-link" href="/allprograms">Programs</a>
                 </li>
 
                 <li sec:authorize="hasAuthority('USER')" class="nav-item">
@@ -34,7 +33,16 @@
                 </li>
 
                 <li sec:authorize="hasAuthority('USER')" class="nav-item">
-                    <a class="nav-link" href="/user/edit">Edit User Profile</a>
+                    <a class="nav-link" href="/user/edit">Edit User Information</a>
+                </li>
+
+
+                <li sec:authorize="hasAuthority('USER')" class="nav-item">
+                    <a class="nav-link" href="/user/programs">View Application Status</a>
+                </li>
+
+                <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
 
             </ul>

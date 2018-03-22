@@ -49,7 +49,9 @@ public class HomeController {
         }
         user.addRole(roleRepository.findByRoleName("USER"));
         userRepository.save(user);
-        return "redirect:/";
+        user.findCriteria();
+        userRepository.save(user);
+        return "redirect:/login";
     }
 
     @GetMapping("/allprograms")
@@ -100,17 +102,18 @@ public class HomeController {
         User user = userRepository.findByUsername(auth.getName());
         Set<Program> programs = user.getPrograms();
         for(Program thisProgram : programs){
-            if (thisProgram.getAttending().contains(user.getName())){
+            if (thisProgram.getAttending().contains(user.getUsername())){
                 thisProgram.setStatus("Attending");
-            } else if (thisProgram.getAccepted().contains(user.getName())){
+            } else if (thisProgram.getAccepted().contains(user.getUsername())){
                 thisProgram.setStatus("Accepted");
-            } else if (thisProgram.getApplied().contains(user.getName())){
+            } else if (thisProgram.getApplied().contains(user.getUsername())){
                 thisProgram.setStatus("Applied");
             } else {
                 thisProgram.setStatus("Error");
             }
+
         }
-        model.addAttribute("programs", user.getPrograms());
+        model.addAttribute("programs", programs);
         return "Applied";
     }
 
@@ -126,7 +129,7 @@ public class HomeController {
     public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
         Program program = programRepository.findOne(id);
-        program.addUser(user);
+//        program.addUser(user);
         program.addApplied(user.getUsername());
         programRepository.save(program);
         user.addProgram(program);
@@ -170,7 +173,10 @@ public class HomeController {
         Program program = programRepository.findOne(id);
         Set<User> users = new HashSet<>();
         for(String name: program.getAccepted()){
-            users.add(userRepository.findByUsername(name));
+            User thisUser = userRepository.findByUsername(name);
+            thisUser.getCriteria();
+            users.add(thisUser);
+
         }
         model.addAttribute("users", users);
         return "Accepted";

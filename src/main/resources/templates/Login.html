@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-
+    <link href="/css/style.css" rel="stylesheet"/>
+    <title>Final Challenge</title>
+    <link href="/css/stylesheet.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 
 <div th:replace="base::navlinks"></div>
-<div class="container" >
-<div th:if="${param.error}">
+<div class="jumbotron jumbotron-fluid">
+    <div class="container" >
+        <div th:if="${param.error}">
     Invalid username and password.
 </div>
-<div th:if="${param.logout}">
+        <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div  class="col-3">
+        <form th:action="@{/login}" method="post">
+            <div  class="col-3">
         <label>User Name: <input type="text" name="username"/></label>
         <span></span>
     </div>
-    <div  class="col-3">
+            <div  class="col-3">
         <label>Password:  <input type="password" name="password"/></label>
         <span></span>
     </div>
-    <div  class="col-3">
+            <div  class="col-3">
         <input type="submit" value="Sign In"/>
         <span></span>
     </div>
-</form>
+        </form>
+    </div>
 </div>
-
 </body>
 </html>
