@@ -25,6 +25,9 @@ public class Program {
 
     private int numAccepted;
 
+    @Lob
+    @Column
+    private ArrayList<String> criterias = new ArrayList<>();
 
     @Column
     private ArrayList<String> criteria = new ArrayList<String>();
@@ -152,5 +155,13 @@ public class Program {
 
     public void setNumAccepted(int numAccepted) {
         this.numAccepted = numAccepted;
+    }
+
+    public ArrayList<String> getCriterias() {
+        return criterias;
+    }
+
+    public void setCriterias(ArrayList<String> criterias) {
+        this.criterias = criterias;
     }
 }

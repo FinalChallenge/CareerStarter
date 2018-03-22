@@ -101,46 +101,6 @@ public class DataLoader implements CommandLineRunner {
         user8.setCriterias(criterias3);
         userRepository.save(user8);
 
-////User One
-//        User user1=new User("admin1@wdce.com", "Dave", "password", "Dave Wolf", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user1.addRole(adminRole);
-//        userRepository.save(user1);
-//
-////User One
-//        User user2=new User("admin2@wdce.com", "Afua", "password", "Afua Ankomah", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user2.addRole(adminRole);
-//        userRepository.save(user2);
-//
-////User Three
-//        User user3=new User("student1@wdce.com", "Saniya", "password", "Saniya Godil", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user3.addRole(userRole);
-//        userRepository.save(user3);
-//
-////User Four
-//        User user4=new User("student2@wdce.com", "Addis", "password", "Addisalem Wondie", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user4.addRole(userRole);
-//        userRepository.save(user4);
-//
-////User Five
-//        User user5=new User("student3@wdce.com", "John", "password", "John Doe", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user5.addRole(userRole);
-//        userRepository.save(user5);
-//
-////User Six
-//        User user6=new User("student4@wdce.com", "Sam", "password", "Sam Brown", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user5.addRole(userRole);
-//        userRepository.save(user6);
-//
-////User Seven
-//        User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user7.addRole(userRole);
-//        userRepository.save(user7);
-//
-////User Eight
-//        User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether", "no", "yes", "yes", "yes", "yes", "no", "yes", "no", "yes", "no", "yes", "no" );
-//        user8.addRole(userRole);
-//        userRepository.save(user8);
-
 //Programs
 //Hiring in Tech
         Program techHire=new Program();
@@ -157,6 +117,15 @@ public class DataLoader implements CommandLineRunner {
         techHire.addCriteria("interestIT");
         techHire.addCriteria("hsGed");
         techHire.addCriteria("workInUs");
+        ArrayList<String> techHireList = new ArrayList<String>();
+        techHireList.add("English Language Learner");
+        techHireList.add("Unemployed");
+        techHireList.add("Underemployed");
+        techHireList.add("Comfortable using computers");
+        techHireList.add("Strong Interest in IT");
+        techHireList.add("Received High School Diploma or GED");
+        techHireList.add("Able to work legally in the United States");
+        techHire.setCriterias(techHireList);
         programRepository.save(techHire);
 //        techHire.addApplied(user2.getUsername());
 //        techHire.addApplied(user3.getUsername());
@@ -189,6 +158,14 @@ public class DataLoader implements CommandLineRunner {
         promisingTheFuture.addCriteria("salaryUnderCutoff");
         promisingTheFuture.addCriteria("workInUs");
 
+        ArrayList<String> promisingTheFutureList = new ArrayList<String>();
+        promisingTheFutureList.add("Basic understanding of Object Oriented Programming");
+        promisingTheFutureList.add("Experience with Object Oriented Programming");
+        promisingTheFutureList.add("If employed, make less than $42,000 a year");
+        promisingTheFutureList.add("Graduated within the last 6 years");
+        promisingTheFutureList.add("Majored in Computer Science or Information Systems");
+        promisingTheFutureList.add("Able to work legally in the United States");
+        promisingTheFuture.setCriterias(promisingTheFutureList);
         programRepository.save(promisingTheFuture);
 //        promisingTheFuture.addApplied(user2.getUsername());
 //        promisingTheFuture.addApplied(user3.getUsername());
