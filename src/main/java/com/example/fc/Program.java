@@ -15,6 +15,7 @@ public class Program {
     @Column
     private String name;
 
+    @Lob
     @Column
     private String description;
 
@@ -28,7 +29,7 @@ public class Program {
     @Lob
     @Column
     private ArrayList<String> criterias = new ArrayList<>();
-
+    
     @Column
     private ArrayList<String> criteria = new ArrayList<String>();
 
