@@ -17,12 +17,12 @@
         <h4 th:text="${program.name}"></h4>
         <span th:text="${program.description}"></span>
         <span th:text="${program.criteria}"></span><br/>
+        <br/>
 
 
-
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br />
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br />
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br />
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br /><br/>
+        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br /><br/>
 
 
         <div>
