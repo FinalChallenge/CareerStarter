@@ -41,6 +41,7 @@ public class DataLoader implements CommandLineRunner {
 
 //User Two
         User user2=new User("admin2@wdce.com", "Afua", "password", "Afua Ankomah");
+        user2.setCriterias(criterias);
         user2.addRole(adminRole);
         userRepository.save(user2);
 
@@ -48,7 +49,6 @@ public class DataLoader implements CommandLineRunner {
         ArrayList<String> criterias1 =  new ArrayList<String>();
         criterias1.add("workInUs");
         criterias1.add("unemployed");
-        criterias1.add("underemployed");
         criterias1.add("comfComp");
         criterias1.add("interestIT");
         criterias1.add("hsGed");
@@ -65,11 +65,9 @@ public class DataLoader implements CommandLineRunner {
 
 //User Five
         ArrayList<String> criterias2 =  new ArrayList<String>();
-        criterias2.add("understandOOP");
-        criterias2.add("expOOP");
         criterias2.add("correctMajor");
         criterias2.add("recentGrad");
-        criterias2.add("salaryUnderCutoff");
+        criterias2.add("underemployed");
         criterias2.add("workInUs");
         User user5=new User("student3@wdce.com", "John", "password", "John Doe");
         user5.addRole(userRole);
@@ -85,10 +83,7 @@ public class DataLoader implements CommandLineRunner {
 //User Seven
         ArrayList<String> criterias3 =  new ArrayList<String>();
         criterias3.add("workInUs");
-        criterias3.add("unemployed");
-        criterias3.add("underemployed");
         criterias3.add("understandOOP");
-        criterias3.add("expOOP");
         criterias3.add("correctMajor");
         User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank");
         user7.addRole(userRole);
