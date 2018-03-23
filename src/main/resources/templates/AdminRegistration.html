@@ -14,44 +14,46 @@
     <link href="/assets/css/default.css" rel="stylesheet"/>
     <link href="/assets/css/fonts.css" rel="stylesheet"/>
 </head>
-</head>
+
 <body>
 <div th:replace="base :: navlinks"></div>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container" >
-        <h5>New User Registration</h5>
-        <form action="#" th:action="@{/registeradmin}" th:object="${user}" method="post">
-            <input type="hidden" th:field="*{id}" />
+<div id="wrapper2">
+    <br />
+    <!--<div class="jumbotron jumbotron-fluid">-->
+    <div class="container" align="center">
+        <div class="card card-hidden col-md-8 col-sm-6 col-md-offset-4 col-sm-offset-1">
+            <br />
+            <h4 class="header text-center">User Registration</h4>
+            <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                <input type="hidden" th:field="*{id}" />
 
-            <div class="col-3">
-                <label id="labelname">Name</label>
-                <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
-                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-            </div><br/>
+                <div>
+                    <label id="labelname">Name</label>
+                    <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter full name"/>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div><br/>
 
-            <div class="col-3">
-                <label id="labelEmail">Email</label>
-                <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
-                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-            </div>
-            <div class="col-3">
-                <label id="labelUsername">Username</label>
-                <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
-                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
-            </div>
-            <div class="col-3">
-                <label id="labelPassword">Password</label>
-                <input type="text" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
-                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-            </div><br/>
+                <div>
+                    <label id="labelEmail">Email</label>
+                    <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                </div><br/>
+                <div>
+                    <label id="labelUsername">Username</label>
+                    <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
+                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                </div><br/>
+                <div>
+                    <label id="labelPassword">Password</label>
+                    <input type="text" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                </div><br/>
 
-
-
-            <div class="col-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
         </form>
-
+        </div>
     </div>
 </div>
 </body>
