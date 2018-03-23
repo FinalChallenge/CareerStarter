@@ -16,29 +16,28 @@
 
 <body>
 <div th:replace="Base :: navlinks"></div>
-<div class="jumbotron jumbotron-fluid">
+<div id="wrapper2">
+    <br /><br />
+    <div class="container" align="center">
 
-    <div class="container">
-
-    <span><h4>Qualifying Programs</h4></span>
+    <span><h5>Qualifying Programs</h5></span>
         <div class="card-deck">
         <div class="card" th:each="program : ${programs}">
             <div class="card-body">
                 <div>
                     <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
-                        <h5><Span th:text="${program.name}"></Span></h5>
+                        <h4><Span th:text="${program.name}"></Span></h4>
                         <b>Description</b><br/>
                         <Span th:text="${program.description}"></Span><br/>
-                        <b>Criteria</b><br/>
-                        <Span th:text="${program.criteria}"></Span><br />
+
                     </a>
                 </div><br/>
             </div>
         </div>
         </div>
+        <br /><br />
     </div>
 </div>
-
 
 
 
