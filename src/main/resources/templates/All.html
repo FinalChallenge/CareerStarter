@@ -17,35 +17,9 @@
 <body>
 <div th:replace="Base :: navlinks"></div>
 <div id="wrapper2">
-<!--<div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h4>All Programs</h4>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Program Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Criteria</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="program : ${programs}">
-                <td th:text="${program.name}"></td>
-                <td th:text="${program.description}"></td>
-                <td th:text="${program.criteria}"></td>
-
-                &lt;!&ndash;user id and program id&ndash;&gt;
-
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-</div>-->
-
-    <div class="container">
-        <span><h4>All Programs</h4></span>
+        <br /><br />
+        <span><h4 class="color1">All Programs</h4></span>
         <div class="card-deck">
         <div class="card" th:each="program : ${programs}">
             <div class="card-body">

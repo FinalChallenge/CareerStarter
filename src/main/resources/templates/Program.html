@@ -13,31 +13,33 @@
     <link href="/assets/css/default.css" rel="stylesheet"/>
     <link href="/assets/css/fonts.css" rel="stylesheet"/>
 </head>
-</head>
+
 <body>
 <div th:replace="Base :: navlinks"></div>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
+<div id="wrapper2">
+    <br /><br />
+    <div class="container" align="center">
+        <div class="card card-hidden col-md-8 col-sm-6 col-md-offset-4 col-sm-offset-1" >
 
-        <h4 th:text="${program.name}"></h4>
-        <span th:text="${program.description}"></span><br/><br/>
-        <h6>Criteria</h6>
-        <span th:text="${program.criterias}"></span><br/>
-        <br/>
-
-
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br /><br/>
-        <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br /><br/>
+            <h4 th:text="${program.name}"></h4>
+            <span th:text="${program.description}"></span><br/><br/>
+            <h6>Criteria</h6>
+            <span th:text="${program.criterias}"></span><br/>
+            <br/>
 
 
-        <div>
-            <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{id} (id=${program.id})}" method="post">
-            <input type="hidden" name="programid" th:value="${programid}"/>
-            <button class="btn btn-primary btn-large" type="submit" >Apply</button>
-            </form>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br /><br/>
+            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br /><br/>
+
+
+            <div>
+                <form action="#" sec:authorize="hasAuthority('USER')" th:action="@{/apply/{id} (id=${program.id})}" method="post">
+                <input type="hidden" name="programid" th:value="${programid}"/>
+                <button class="btn btn-primary btn-large" type="submit" >Apply</button>
+                </form>
+            </div>
         </div>
-
 
     </div>
 </div>
