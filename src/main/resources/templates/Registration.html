@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-    <link href="/assets/css/stylesheet.css" type="text/css" rel="stylesheet"/>
+    <!--<link href="/assets/css/stylesheet.css" type="text/css" rel="stylesheet"/>-->
     <title>Final Challenge</title>
     <!--Sunny-->
+    <link href="/assets/css/default.css" rel="stylesheet"/>
+    <link href="/assets/css/fonts.css" rel="stylesheet"/>
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container" >
+<div id="wrapper2">
+<!--<div class="jumbotron jumbotron-fluid">-->
+    <div class="centered" >
     <h5>New User Registration</h5>
     <form action="#" th:action="@{/register}" th:object="${user}" method="post">
         <input type="hidden" th:field="*{id}" />
@@ -107,12 +110,13 @@
 
 
         <div class="col-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="button button-small">Submit</button>
         </div>
     </form>
 
     </div>
 </div>
+<!--</div>-->
 </body>
 
 </html>
