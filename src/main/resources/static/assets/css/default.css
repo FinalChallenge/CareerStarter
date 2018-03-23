@@ -161,7 +161,49 @@
 		display: flex;
 		color: black;
 	}
+    /*Addis*/
+    /*****************************************************************************/
+    .centered{
+        margin: 0 auto;
+        color: white;
+    }
 
+    .container
+    {
+        margin: 0px auto;
+        width: 1200px;
+    }
+    .card{
+        alignment: center;
+        box-shadow: white;
+    }
+    #logincard{
+        overflow: hidden;
+        /*margin: 0 auto 0 auto;*/
+        padding: 20px 24px 20px 37px;
+    }
+    .card-deck {
+        /*column-count: 2;*/
+        display: flex;
+        color: purple;
+        padding: 15px 15px 15px 15px;
+        font-family: 'FontAwesome',sans-serif;
+
+    }
+    h4{
+        color: white;
+        font-family: 'FontAwesome',sans-serif;
+    }
+    #allprograms, p a b{
+        color: purple;
+    }
+    a.fill-div {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: purple;
+    }
 
 
 
