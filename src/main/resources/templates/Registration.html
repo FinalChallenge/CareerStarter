@@ -15,108 +15,127 @@
 <body>
 <div th:replace="base :: navlinks"></div>
 <div id="wrapper2">
+    <br />
 <!--<div class="jumbotron jumbotron-fluid">-->
-    <div class="centered" >
-    <h5>New User Registration</h5>
-    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
-        <input type="hidden" th:field="*{id}" />
+    <div class="container" align="center">
+        <div class="card card-hidden col-md-8 col-sm-6 col-md-offset-4 col-sm-offset-1">
+            <br />
+            <h4 class="header text-center">User Registration</h4>
+            <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                <input type="hidden" th:field="*{id}" />
 
-        <div class="col-3">
-            <label id="labelname">Name</label>
-            <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter first name"/>
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-        </div><br/>
+                <div>
+                    <label id="labelname">Name</label>
+                    <input type="text" class="form-control" id="textname" th:field="*{name}" placeholder="Enter full name"/>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div><br/>
 
-        <div class="col-3">
-            <label id="labelEmail">Email</label>
-            <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
-            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                <div>
+                    <label id="labelEmail">Email</label>
+                    <input type="email" class="form-control" id="emailEmail" th:field="*{email}" placeholder="Enter email"/>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                </div><br/>
+                <div>
+                    <label id="labelUsername">Username</label>
+                    <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
+                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                </div><br/>
+                <div>
+                    <label id="labelPassword">Password</label>
+                    <input type="text" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                </div><br/>
+
+            <fieldset>
+                <legend>Choose relevant criteria</legend>
+                <div class="checkbox">
+                    <input type="hidden" id="Criteria" name="criteria" value="Criteria" checked="checked" />
+                </div>
+
+
+                    <label class="container1">Able to work legally in United States
+                        <input type="checkbox" id="workInUs" name="criteria" value="workInUs"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">English Language Learner
+                        <input type="checkbox" id="englishLL" name="criteria" value="englishLL"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Basic Understanding of Object Oriented Programming
+                        <input type="checkbox" id="understandOOP" name="criteria" value="understandOOP"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Experience with Object Oriented Programming
+                        <input type="checkbox" id="expOOP" name="criteria" value="expOOP"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Majored in Computer Science or Information Systems
+                        <input type="checkbox" id="correctMajor" name="criteria" value="correctMajor"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Graduated in the last 6 years
+                        <input type="checkbox" id="recentGrad" name="criteria" value="recentGrad"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Unemployed
+                        <input type="checkbox" id="unemployed" name="criteria" value="unemployed"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1" for="salaryUnderCutoff">If Employed, make less than $42,000 a year
+                        <input type="checkbox" id="salaryUnderCutoff" name="criteria" value="salaryUnderCutoff"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Graduated High School or Received GED
+                        <input type="checkbox" id="hsGed" name="criteria" value="hsGed"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Strong interest in IT
+                        <input type="checkbox" id="interestIT" name="criteria" value="interestIT"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Comfortable using computers
+                        <input type="checkbox" id="comfComp" name="criteria" value="comfComp"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container1">Underemployed
+                        <input type="checkbox" id="underemployed" name="criteria" value="underemployed"/>
+                        <span class="checkmark"></span>
+                    </label>
+
+            </fieldset>
+
+            <div class="col-3">
+                <button type="submit" class="button button-small">Submit</button>
+            </div><br />
+        </form>
         </div>
-        <div class="col-3">
-            <label id="labelUsername">Username</label>
-            <input type="text" class="form-control" id="textUsername" th:field="*{username}" placeholder="Enter user name"/>
-            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
-        </div>
-        <div class="col-3">
-            <label id="labelPassword">Password</label>
-            <input type="text" class="form-control" id="textPassword" th:field="*{password}" placeholder="Enter password"/>
-            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-        </div><br/>
-
-        <fieldset>
-            <legend>Choose relevant criteria</legend>
-            <div class="checkbox">
-                <input type="hidden" id="Criteria" name="criteria" value="Criteria" checked="checked" />
-
-            </div>
-            <div>
-                <input type="checkbox" id="workInUs" name="criteria" value="workInUs"/>
-                <label for="workInUs">Ability to work in United States</label>
-            </div>
-            <div>
-                <input type="checkbox" id="englishLL" name="criteria" value="englishLL"/>
-                <label for="englishLL">English Language Learner</label>
-            </div>
-            <div>
-                <input type="checkbox" id="understandOOP" name="criteria" value="understandOOP"/>
-                <label for="understandOOP">Basic Understanding of Object Oriented Programming</label>
-            </div>
-            <div>
-                <input type="checkbox" id="expOOP" name="criteria" value="expOOP"/>
-                <label for="expOOP">Experience with Object Oriented Programming</label>
-            </div>
-
-
-            <div>
-                <input type="checkbox" id="correctMajor" name="criteria" value="correctMajor"/>
-                <label for="correctMajor">Majored in Computer Science or Information Systems</label>
-            </div>
-            <div>
-                <input type="checkbox" id="recentGrad" name="criteria" value="recentGrad"/>
-                <label for="recentGrad" >Graduated in the last 6 years</label>
-            </div>
-            <div>
-                <input type="checkbox" id="unemployed" name="criteria" value="unemployed"/>
-                <label for="unemployed">Unemployed</label>
-            </div>
-            <div>
-                <input type="checkbox" id="salaryUnderCutoff" name="criteria" value="salaryUnderCutoff"/>
-                <label for="salaryUnderCutoff">If Employed, make less than $42,000 a year</label>
-            </div>
-
-
-            <div>
-                <input type="checkbox" id="hsGed" name="criteria" value="hsGed"/>
-                <label for="hsGed">Graduated High School or Received GED</label>
-            </div>
-            <div>
-                <input type="checkbox" id="interestIT" name="criteria" value="interestIT"/>
-                <label for="interestIT">Strong interest in IT</label>
-            </div>
-            <div>
-                <input type="checkbox" id="comfComp" name="criteria" value="comfComp"/>
-                <label for="comfComp">Comfortable using computers</label>
-            </div>
-            <div>
-                <input type="checkbox" id="underemployed" name="criteria" value="underemployed"/>
-                <label for="underemployed">Underemployed</label>
-            </div>
-
-
-
-
-        </fieldset>
-
-
-
-        <div class="col-3">
-            <button type="submit" class="button button-small">Submit</button>
-        </div>
-    </form>
-
-    </div>
+    </div><br />
 </div>
 <!--</div>-->
-</body>
 
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/bootstrap-checkbox-radio-switch-tags.js"></script>
+<script src="/assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="/assets/js/light-bootstrap-dashboard.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
 </html>
