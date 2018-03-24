@@ -16,7 +16,9 @@
         background-color: #FFFFFF;
         margin-bottom: 30px;
     }
-
+	.card.card-hidden.col-md-8.col-sm-4.col-md-offset-4.col-sm-offset-1{
+		margin-bottom: 30px;
+	}
     .container1 {
         display: block;
         position: relative;
@@ -192,7 +194,9 @@
         color: purple;
     }
 
-
+	.container{
+		margin-bottom: 30px;
+	}
 
 
 
@@ -601,8 +605,9 @@
 	#wrapper2
 	{
 		background: #6C2A6A;
-		/*padding: 0em 0em 0em 10em;*/
-		height: auto;
+		overflow: hidden;
+		padding: 0em 0em 0em 10em;
+		/*height: auto;*/
 	}
 
 	#wrapper3
