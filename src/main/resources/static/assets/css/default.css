@@ -95,7 +95,8 @@
 	{
 		margin: 0px;
 		padding: 0px;
-		background: #ffffff url(../images/overlay.png) repeat;
+		/*background: #ffffff url(../images/overlay.png) repeat;*/
+		background: #ffffff;
 		font-family: 'Varela Round', sans-serif;
 		font-size: 11pt;
 		font-weight: 400;
