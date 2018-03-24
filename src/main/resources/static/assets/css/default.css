@@ -602,7 +602,7 @@
 	{
 		background: #6C2A6A;
 		/*padding: 0em 0em 0em 10em;*/
-		height: 100%;
+		height: auto;
 	}
 
 	#wrapper3
