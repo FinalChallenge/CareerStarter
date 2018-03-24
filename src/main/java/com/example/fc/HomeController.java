@@ -120,6 +120,15 @@ public class HomeController {
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
+        //model.addAttribute("criterias", user.getCriterias());
+        ArrayList<String> criteria=user.getCriterias();
+        for(String c:criteria){
+            System.out.println(c);
+            model.addAttribute("c", c);
+            if(!c.isEmpty()){
+                model.addAttribute("check",true);
+            }
+        }
         return "Registration"; //Use Registration.html until Edit is fixed
     }
 //    @PostMapping("/user/edit")

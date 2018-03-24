@@ -82,6 +82,7 @@ public class DataLoader implements CommandLineRunner {
 
 //User Seven
         ArrayList<String> criterias3 =  new ArrayList<String>();
+        criterias3.add("englishLL");
         criterias3.add("workInUs");
         criterias3.add("understandOOP");
         criterias3.add("correctMajor");
