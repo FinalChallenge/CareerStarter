@@ -38,10 +38,13 @@
             </div>
 
 
-            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
+            <!--<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
             <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br /><br/>
             <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-small typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br /><br/>
-
+-->
+            <a sec:authorize="hasAuthority('ADMIN')" class="button button-admin-view " th:href="@{/applicants/{id} (id=${program.id})}" role="button">View Applicants</a><br /><br/>
+            <a sec:authorize="hasAuthority('ADMIN')" class="button button-admin-view typeone " th:href="@{/accepted/{id} (id=${program.id})}" role="button">View Accepted Students</a><br /><br/>
+            <a sec:authorize="hasAuthority('ADMIN')" class="button button-admin-view typeone " th:href="@{/attending/{id} (id=${program.id})}" role="button">View Attending Students</a><br /><br/>
 
         </div>
 

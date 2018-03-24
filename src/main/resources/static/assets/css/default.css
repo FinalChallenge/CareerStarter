@@ -400,7 +400,7 @@
 		padding: 0.6em 1em;
 		background: #6C2A6A;
 		border-radius: 4px;
-		line-height: 1.8em;
+		line-height: 1em;
 		text-decoration: none;
 		font-weight: 400;
 		font-size: 1.2em;
@@ -423,7 +423,31 @@
 	.button-small
 	{
 	}
-		
+	.button-accept{
+		display: inline-block;
+		margin-top: 0em;
+		padding: 0.6em 1em;
+		background: #6C2A6A;
+		border-radius: 4px;
+		line-height: 1em;
+		text-decoration: none;
+		font-weight: 400;
+		font-size: 1.2em;
+		color: #FFF;
+	}
+	.button-admin-view{
+		display: inline-block;
+		margin-top: 0em;
+		padding: 0.6em 1em;
+		background: #6C2A6A;
+		border-radius: 4px;
+		line-height: 1em;
+		text-decoration: none;
+		font-weight: 400;
+		font-size: 1.2em;
+		color: #FFF;
+		width: 100%;
+	}
 /*********************************************************************************/
 /* Heading Titles                                                                */
 /*********************************************************************************/
