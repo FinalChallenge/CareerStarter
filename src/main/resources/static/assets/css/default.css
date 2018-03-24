@@ -167,8 +167,14 @@
         color: purple;
         padding: 15px 15px 15px 15px;
         font-family: 'FontAwesome',sans-serif;
-
+		text-align: justify;
     }
+	.card{
+		box-shadow: 0 5px 20px 10px rgba(46, 8, 43, 0.14), 0 4px 25px 5px rgba(0, 0, 0, 0.43);
+	}
+	.card-body p{
+		font-family: 'FontAwesome',sans-serif;
+	}
     h4{
         font-family: 'FontAwesome',sans-serif;
     }

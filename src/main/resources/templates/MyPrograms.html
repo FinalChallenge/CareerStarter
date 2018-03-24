@@ -22,18 +22,21 @@
 
     <span><h5>Qualifying Programs</h5></span>
         <div class="card-deck">
-        <div class="card" th:each="program : ${programs}">
-            <div class="card-body">
-                <div>
-                    <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
+            <div class="card" th:each="program : ${programs}">
+                <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
+                    <div class="card-header">
                         <h4><Span th:text="${program.name}"></Span></h4>
-                        <b>Description</b><br/>
-                        <Span th:text="${program.description}"></Span><br/>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <!--<h4><Span th:text="${program.name}"></Span></h4>-->
+                            <p><h6><b>Description</b></h6></p>
+                            <p th:text="${program.description}"></p><br/>
 
-                    </a>
-                </div><br/>
+                        </div><br/>
+                    </div>
+                </a>
             </div>
-        </div>
         </div>
         <br /><br />
     </div>
