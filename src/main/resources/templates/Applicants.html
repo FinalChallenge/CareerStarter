@@ -113,7 +113,7 @@
                     <div>
                         <form action="#" sec:authorize="hasAuthority('ADMIN')" th:action="@{/accept/{programid}/{id} (id=${nUser.id}, programid = ${program.id})}" method="post">
                             <!--<input type="hidden" name="programid" th:value="${programid}"/>-->
-                            <button class="button button-accept btn-sm" type="submit">Accept Student</button>
+                            <button class="button button-accept" type="submit">Accept Student</button>
                         </form>
                     </div>
 

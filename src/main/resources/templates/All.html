@@ -14,10 +14,12 @@
 <body>
 <div th:replace="Base :: navlinks"></div>
 <div id="wrapper2">
+
     <div class="container" align="center">
         <br /><br />
-        <span><h5>All Programs</h5></span>
+        <span><h4>All Programs</h4></span>
         <div class="card-deck">
+        <div class="card-columns">
         <div class="card" th:each="program : ${programs}">
             <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
             <div class="card-header">
@@ -34,7 +36,9 @@
             </a>
         </div>
         </div>
+        </div>
         <br /><br />
+
     </div>
 </div>
 

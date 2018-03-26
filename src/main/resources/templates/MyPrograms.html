@@ -19,6 +19,7 @@
 
     <span><h5>Qualifying Programs</h5></span>
         <div class="card-deck">
+            <div class="card-columns">
             <div class="card" th:each="program : ${programs}">
                 <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
                     <div class="card-header">
@@ -33,6 +34,7 @@
                         </div><br/>
                     </div>
                 </a>
+            </div>
             </div>
         </div>
         <br /><br />

@@ -163,6 +163,9 @@ a:hover
     /*margin: 0 auto 0 auto;*/
     padding: 20px 24px 20px 37px;
 }
+.card-columns{
+    column-count: 2;
+}
 .card-deck {
     /*column-count: 2;*/
     display: flex;
@@ -171,6 +174,7 @@ a:hover
     margin-bottom: 15px;
     font-family: 'FontAwesome',sans-serif;
     text-align: justify;
+
 }
 .card{
     box-shadow: 0 5px 20px 10px rgba(46, 8, 43, 0.14), 0 4px 25px 5px rgba(0, 0, 0, 0.43);
@@ -430,7 +434,7 @@ ul.contact li a:before
 .button-accept{
     display: inline-block;
     margin-top: 0em;
-    padding: 0.6em 1em;
+    /*padding: 0.6em 1em;*/
     background: #6C2A6A;
     border-radius: 4px;
     line-height: 1em;

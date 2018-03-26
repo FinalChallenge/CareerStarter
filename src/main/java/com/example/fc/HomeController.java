@@ -202,6 +202,7 @@ public class HomeController {
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
         program.addAccepted(user.getUsername());
+
 //        program.setStatus("Accepted");
         programRepository.save(program);
         SimpleMailMessage message = new SimpleMailMessage();
