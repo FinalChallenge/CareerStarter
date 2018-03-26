@@ -206,8 +206,7 @@ public class DataLoader implements CommandLineRunner {
         programRepository.save(javaDeveloper);
         javaDeveloper.setName("Java Developer");
 
-        javaDeveloper.setDescription("This program is for people with some programming experience who wish to learn Java" +
-                "programming more in depth.");
+        javaDeveloper.setDescription("This program is for people with some programming experience who wish to learn Java programming more in depth.");
         javaDeveloper.addCriteria("understandOOP");
         javaDeveloper.addCriteria("expOOP");
         javaDeveloper.addCriteria("workInUs");
