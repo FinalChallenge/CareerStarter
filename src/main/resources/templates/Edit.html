@@ -44,54 +44,54 @@
             <!---->
             <fieldset>
                 <legend>Choose relevant criteria</legend>
-                <!--<div th:each="c : ${c}">-->
-            <div class="checkbox">
+                <div th:each="c : ${c}">
+            <div class="checkbox" th:if="${c=='workInUs'}">
                 <input type="checkbox"    th:field="*{criterias}" th:value="workInUs"  th:checked="${c=='workInUs'}"/> <label id="labelWork"> Are able to work in the US?</label>
             </div><br/>
-            <div class="checkbox">
-                <input type="checkbox"  th:field="*{criterias}"  th:value="${c}"  th:checked="${c=='englishLL'}"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
+            <div class="checkbox" th:if="${c=='englishLL'}">
+                <input type="checkbox"  th:field="*{criterias}"  th:value="englishLL"  th:checked="${c=='englishLL'}"/><label id="labelLanguage"> Are you in the English Language Learner Program?</label>
             </div><br />
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='understandOOP'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='understandOOP'}"  /><label id="labelOOP"> Do you have basic understanding of Object Oriented Programming?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='expOOP'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}" th:checked="${c=='expOOP'}" /><label id="labelExp"> Do you have a previous experience in Object Oriented Programming?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='correctMajor'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='correctMajor'}" /><label id="labelMajor"> Is your major Computer Science/Information Systems?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='recentGrad'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='recentGrad'}" /><label id="labelRecentGrad"> Are you graduated within the last 6 years?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='salaryUnderCutoff'}">
                 <input type="checkbox"  th:field="*{criterias}"  th:value="${c}"  th:checked="${c=='salaryUnderCutoff'}"/><label id="labelSalary"> Are you currently earning 42,000 or less?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='hsGed'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='hsGed'}"/><label id="labelGED"> Do you have a high school diploma or GED?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='interestIT'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='interestIT'}"/><label id="labelInterest"> Do you have a strong interest in IT career?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='comfComp'}">
                 <input type="checkbox"   th:field="*{criterias}" th:value="${c}"  th:checked="${c=='comfComp'}"/><label id="labelComputerUsage"> Are you comfortable using computers for everyday purposes?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='unemployed'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='unemployed'}"/> <label id="labelUnemployed"> Are you unemployed with barriers to employment?</label>
             </div><br/>
 
-            <div class="checkbox">
+            <div class="checkbox" th:if="${c=='underemployed'}">
                 <input type="checkbox"  th:field="*{criterias}" th:value="${c}"  th:checked="${c=='underemployed'}" /><label id="labelUnderemployed"> Are you underemployed with barriers to better employment?</label>
             </div><br/>
-                <!--</div>-->
+                </div>
             </fieldset>
             <div class="col-3">
                 <button type="submit" class="button button-small">Submit</button>

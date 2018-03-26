@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class HomeController {
 
     ///////////EVERYONE CAN SEE//////////////////////////////////////////////////
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String home(){
         return "Home";
     }
@@ -132,10 +133,12 @@ public class HomeController {
         return "Edit"; //Use Registration.html until Edit is fixed
     }
     @PostMapping("/user/edit")
-    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
+    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request){
         if(result.hasErrors()){
             return "Edit";
         }
+        String[] mycriteria=request.getParameterValues("cr1");
+        System.out.println(mycriteria);
         userRepository.save(user);
         return "redirect:/";
     }
