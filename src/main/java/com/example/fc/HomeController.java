@@ -120,25 +120,25 @@ public class HomeController {
     public String editUser(Model model, Authentication auth) {
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
-        //model.addAttribute("criterias", user.getCriterias());
         ArrayList<String> criteria=user.getCriterias();
-        for(String c:criteria){
-            System.out.println(c);
-            model.addAttribute("c", c);
-            if(!c.isEmpty()){
-                model.addAttribute("check",true);
-            }
+//        ArrayList<String> thisUserCriterias=new ArrayList<>();
+        for(String cr:criteria){
+            System.out.println(cr);
+//            model.addAttribute("c", c);
+//            thisUserCriterias.add(c);
         }
-        return "Registration"; //Use Registration.html until Edit is fixed
+        model.addAttribute("c", criteria);
+//        model.addAttribute("thisUserCriterias", thisUserCriterias);
+        return "Edit"; //Use Registration.html until Edit is fixed
     }
-//    @PostMapping("/user/edit")
-//    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
-//        if(result.hasErrors()){
-//            return "Edit";
-//        }
-//        userRepository.save(user);
-//        return "redirect:/";
-//    }
+    @PostMapping("/user/edit")
+    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
+        if(result.hasErrors()){
+            return "Edit";
+        }
+        userRepository.save(user);
+        return "redirect:/";
+    }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     //view program details
