@@ -436,11 +436,11 @@ ul.contact li a:before
     margin-top: 0em;
     /*padding: 0.6em 1em;*/
     background: #6C2A6A;
-    border-radius: 4px;
-    line-height: 1em;
+    border-radius: 2px;
+    line-height: 0.6em;
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #FFF;
 }
 .button-admin-view{
