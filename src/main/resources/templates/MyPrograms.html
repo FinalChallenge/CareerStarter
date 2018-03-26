@@ -22,7 +22,7 @@
             <div class="card" th:each="program : ${programs}">
                 <a th:href="@{/program/{id} (id=${program.id})}" class="fill-div">
                     <div class="card-header">
-                        <h4><Span th:text="${program.name}"></Span></h4>
+                        <h4 align="center"><Span th:text="${program.name}"></Span></h4>
                     </div>
                     <div class="card-body">
                         <div>

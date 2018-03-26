@@ -26,6 +26,8 @@ public class Program {
 
     private int numAccepted;
 
+    private int numAttending;
+
     @Lob
     @Column
     private ArrayList<String> criterias = new ArrayList<>();
@@ -164,5 +166,13 @@ public class Program {
 
     public void setCriterias(ArrayList<String> criterias) {
         this.criterias = criterias;
+    }
+
+    public int getNumAttending() {
+        return numAttending;
+    }
+
+    public void setNumAttending(int numAttending) {
+        this.numAttending = numAttending;
     }
 }
