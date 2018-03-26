@@ -175,7 +175,7 @@ public class HomeController {
     public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
         Program program = programRepository.findOne(id);
-//        program.addUser(user);
+        program.addUser(user);
         program.addApplied(user.getUsername());
         programRepository.save(program);
         user.addProgram(program);
@@ -219,7 +219,12 @@ public class HomeController {
     @RequestMapping("/applicants/{id}")
     public String viewApplicants(Model model, @PathVariable("id") long id){
         Program program = programRepository.findOne(id);
-        Set<User> users = program.getUsers();
+        Set<User> users = new HashSet<>();
+        for(String name: program.getApplied()){
+            users.add(userRepository.findByUsername(name));
+        }
+
+
         Set<User> reqUsers = meetRequirements(users, program);
         model.addAttribute("users", users);
         model.addAttribute("reqUsers", reqUsers);
@@ -276,6 +281,7 @@ public class HomeController {
         for(Program program : programRepository.findAll()){
             program.setNumApplicants(program.getApplied().size());
             program.setNumAccepted(program.getAccepted().size());
+            program.setNumAttending(program.getAttending().size());
             programs.add(program);
         }
         model.addAttribute("programs", programs);

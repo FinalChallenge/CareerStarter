@@ -83,18 +83,19 @@ public class DataLoader implements CommandLineRunner {
 //User Seven
         ArrayList<String> criterias3 =  new ArrayList<String>();
         criterias3.add("englishLL");
-        criterias3.add("workInUs");
-        criterias3.add("understandOOP");
-        criterias3.add("correctMajor");
+        criterias3.add("unemployed");
         User user7=new User("student5@wdce.com", "Anne", "password", "Anne Frank");
         user7.addRole(userRole);
         user7.setCriterias(criterias3);
         userRepository.save(user7);
 
 //User Eight
+        ArrayList<String> criterias4 =  new ArrayList<String>();
+        criterias4.add("understandOOP");
+        criterias4.add("correctMajor");
         User user8=new User("student5@wdce.com", "Emmy", "password", "Emmy Noether");
         user8.addRole(userRole);
-        user8.setCriterias(criterias3);
+        user8.setCriterias(criterias4);
         userRepository.save(user8);
 
 //Programs
@@ -102,9 +103,6 @@ public class DataLoader implements CommandLineRunner {
         Program techHire=new Program();
         programRepository.save(techHire);
         techHire.setName("Hiring in Tech");
-
-      /*  techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training" +
-                " program for those interested in careers in computers and Information Technology.");*/
         techHire.setDescription("TechHire is a new U.S. Department of Labor grant-funded training program for those" +
                 " interested in careers in computers and Information Technology (IT). Based on your skills, experience," +
                 " and English level, you may be able to enter one or more tracks that will help you further your" +
@@ -126,30 +124,23 @@ public class DataLoader implements CommandLineRunner {
         techHireList.add("Able to work legally in the United States");
         techHire.setCriterias(techHireList);
         programRepository.save(techHire);
-//        techHire.addApplied(user2.getUsername());
-//        techHire.addApplied(user3.getUsername());
-//        techHire.addApplied(user4.getUsername());
-//        techHire.addApplied(user5.getUsername());
-//
-//        techHire.addAccepted(user2.getUsername());
-//        techHire.addAccepted(user3.getUsername());
-//        techHire.addAccepted(user5.getUsername());
-//
-//        techHire.addAttending(user5.getName());
-//
-//        techHire.addUser(user2);
-//        techHire.addUser(user3);
-//        techHire.addUser(user4);
-//        techHire.addUser(user5);
-//        programRepository.save(techHire);
+        techHire.addUser(user8);
+        techHire.addApplied(user8.getUsername());
+        techHire.addApplied(user3.getUsername());
+        techHire.addApplied(user4.getUsername());
+        techHire.addApplied(user5.getUsername());
+        techHire.addAccepted(user3.getUsername());
+        techHire.addAccepted(user5.getUsername());
+        techHire.addAttending(user5.getName());
+        techHire.addUser(user3);
+        techHire.addUser(user4);
+        techHire.addUser(user5);
+        programRepository.save(techHire);
 
 //Promising the Future
         Program promisingTheFuture=new Program();
         programRepository.save(promisingTheFuture);
         promisingTheFuture.setName("Promising the Future");
-       /* promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day" +
-                " 8-week, immersive software engineering program funded by the Department of Labor. This course " +
-                "aims to increase the number of skilled software developers in this country.");*/
         promisingTheFuture.setDescription("The Java Web Developer Boot Camp is an 8 hour a day (9 am - 5 pm, M-F)" +
                 " 8-week, immersive software engineering program funded by the Department of Labor. This course aims" +
                 " to increase the number of skilled software developers in this country. We do this by accepting" +
@@ -169,8 +160,77 @@ public class DataLoader implements CommandLineRunner {
         promisingTheFutureList.add("Graduated within the last 6 years");
         promisingTheFutureList.add("Majored in Computer Science or Information Systems");
         promisingTheFutureList.add("Able to work legally in the United States");
+        promisingTheFuture.addUser(user5);
+        promisingTheFuture.addUser(user8);
+        promisingTheFuture.addUser(user7);
+        promisingTheFuture.addUser(user4);
+        promisingTheFuture.addUser(user6);
+        promisingTheFuture.addApplied(user7.getUsername());
+        promisingTheFuture.addApplied(user8.getUsername());
+        promisingTheFuture.addApplied(user5.getUsername());
+        promisingTheFuture.addApplied(user6.getUsername());
+        promisingTheFuture.addApplied(user4.getUsername());
+        promisingTheFuture.addAccepted(user5.getUsername());
+        promisingTheFuture.addAccepted(user4.getUsername());
+        promisingTheFuture.addAttending(user4.getUsername());
+        promisingTheFuture.addAttending(user5.getUsername());
         promisingTheFuture.setCriterias(promisingTheFutureList);
         programRepository.save(promisingTheFuture);
+
+        //Learn how to code
+        Program learnCoding = new Program();
+        programRepository.save(learnCoding);
+        learnCoding.setName("Learn Coding");
+
+        learnCoding.setDescription("This program is for students who have no experience with computer programming. " +
+                "We take you from zero to hero. You will learn the basics of programming, algorithms and object oriented programming.");
+        learnCoding.addCriteria("recentGrad");
+        learnCoding.addCriteria("salaryUnderCutoff");
+        learnCoding.addCriteria("workInUs");
+
+        ArrayList<String> learnCodingList = new ArrayList<String>();
+        learnCodingList.add("If employed, make less than $42,000 a year");
+        learnCodingList.add("Graduated within the last 6 years");
+        learnCodingList.add("Able to work legally in the United States");
+        learnCoding.setCriterias(learnCodingList);
+        learnCoding.addUser(user4);
+        learnCoding.addUser(user6);
+        learnCoding.addApplied(user4.getUsername());
+        learnCoding.addApplied(user6.getUsername());
+        learnCoding.addAccepted(user4.getUsername());
+        learnCoding.addAttending(user4.getUsername());
+        programRepository.save(learnCoding);
+
+        //Become a Java Developer
+        Program javaDeveloper = new Program();
+        programRepository.save(javaDeveloper);
+        javaDeveloper.setName("Java Developer");
+
+        javaDeveloper.setDescription("This program is for people with some programming experience who wish to learn Java" +
+                "programming more in depth.");
+        javaDeveloper.addCriteria("understandOOP");
+        javaDeveloper.addCriteria("expOOP");
+        javaDeveloper.addCriteria("workInUs");
+
+        ArrayList<String> javaDeveloperList = new ArrayList<String>();
+        javaDeveloperList.add("Basic understanding of Object Oriented Programming");
+        javaDeveloperList.add("Experience with Object Oriented Programming");
+        javaDeveloperList.add("Able to work legally in the United States");
+        javaDeveloper.setCriterias(learnCodingList);
+        javaDeveloper.addUser(user5);
+        javaDeveloper.addUser(user6);
+        javaDeveloper.addUser(user7);
+        javaDeveloper.addApplied(user5.getUsername());
+        javaDeveloper.addApplied(user6.getUsername());
+        javaDeveloper.addApplied(user7.getUsername());
+        javaDeveloper.addAccepted(user5.getUsername());
+        javaDeveloper.addAccepted(user7.getUsername());
+        javaDeveloper.addAttending(user7.getUsername());
+        programRepository.save(javaDeveloper);
+
+
+
+
 //        promisingTheFuture.addApplied(user2.getUsername());
 //        promisingTheFuture.addApplied(user3.getUsername());
 //        promisingTheFuture.addApplied(user4.getUsername());
