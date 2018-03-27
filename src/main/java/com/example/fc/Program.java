@@ -1,5 +1,7 @@
 package com.example.fc;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,8 +17,9 @@ public class Program {
     @Column
     private String name;
 
+    @Column(nullable = false, length = 2147483647)
     @Lob
-    @Column
+    @Type(type="org.hibernate.type.StringClobType")
     private String description;
 
     @Column
@@ -28,8 +31,9 @@ public class Program {
 
     private int numAttending;
 
+    @Column(nullable = false, length = 2147483647)
     @Lob
-    @Column
+    @Type(type="org.hibernate.type.StringClobType")
     private ArrayList<String> criterias = new ArrayList<>();
 
     @Column
