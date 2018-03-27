@@ -56,17 +56,17 @@ public class HomeController {
         if (result.hasErrors()) {
             return "Registration";
         }
-//        if(userRepository.findByUsername(user.getUsername()) == null){
+        if(userRepository.findByUsername(user.getUsername()) == null){
             user.addRole(roleRepository.findByRoleName("USER"));
             userRepository.save(user);
-//        }
-        ArrayList<String> thisCriterias =  new ArrayList<String>();
-        String [] temp = (user.getCriteria().split("&"));
-        for(String i : temp){
-            thisCriterias.add(i.substring(9));
         }
-        user.setCriterias(thisCriterias);
-        userRepository.save(user);
+//        ArrayList<String> thisCriterias =  new ArrayList<String>();
+//        String [] temp = (user.getCriteria().split("&"));
+//        for(String i : temp){
+//            thisCriterias.add(i.substring(9));
+//        }
+//        user.setCriterias(thisCriterias);
+//        userRepository.save(user);
         return "redirect:/login";
     }
 
