@@ -19,7 +19,6 @@
             <div id="menu">
                 <ul>
                     <li th:class="${classActiveSettings}"><a href="/" accesskey="1">Homepage</a></li>
-
                     <li th:class="${classActiveSettings1}" sec:authorize="isAnonymous()"><a accesskey="2" href="/login" >Login</a></li>
                     <li th:class="${classActiveSettings2}" sec:authorize="isAnonymous()"><a accesskey="3" href="/register">Register</a></li>
                     <li th:class="${classActiveSettings3}" sec:authorize="hasAuthority('ADMIN')"><a href="/registeradmin" accesskey="4">New Admin</a></li>
