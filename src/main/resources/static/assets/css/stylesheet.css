@@ -1,7 +1,9 @@
 h5 {
     color: white;
 }
-
+h3{
+    color:white;
+}
 .login-page .card.card-hidden {
     opacity: 0;
     -webkit-transform: translate3d(0, -60px, 0);
@@ -190,7 +192,7 @@ a:hover
 }
 h4{
     font-family: 'FontAwesome',sans-serif;
-    color:white;
+    color:black;
 }
 #allprograms, p a b{
     color: black;

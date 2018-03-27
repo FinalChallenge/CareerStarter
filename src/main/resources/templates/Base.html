@@ -25,7 +25,7 @@
                     <li th:class="${classActiveSettings3}" sec:authorize="hasAuthority('ADMIN')"><a href="/registeradmin" accesskey="4">New Admin</a></li>
                     <li th:class="${classActiveSettings4}"><a href="/allprograms" accesskey="5">Programs</a></li>
                     <li th:class="${classActiveSettings5}" sec:authorize="hasAuthority('USER')"><a href="/myprograms" accesskey="6">My Programs</a></li>
-                    <li th:class="${classActiveSettings6}" sec:authorize="hasAuthority('USER')"><a href="/user/edit" accesskey="7">Edit User Info</a></li>
+                    <!--<li th:class="${classActiveSettings6}" sec:authorize="hasAuthority('USER')"><a href="/user/edit" accesskey="7">Edit User Info</a></li>-->
                     <li th:class="${classActiveSettings7}" sec:authorize="hasAuthority('ADMIN')"><a href="/programssummary" accesskey="8">Summary of Programs</a></li>
                     <li th:class="${classActiveSettings8}" sec:authorize="hasAuthority('USER')"><a href="/user/programs" accesskey="9">Application Status</a></li>
                     <li sec:authorize="hasAnyAuthority('USER', 'ADMIN')"><a href="/logout" accesskey="9">Logout</a></li>
