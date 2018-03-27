@@ -20,7 +20,7 @@
                 <ul>
                     <li class="current_page_item"><a href="/" accesskey="1">Homepage</a></li>
                     <li sec:authorize="isAnonymous()"><a accesskey="2" href="/login" >Login</a></li>
-                    <li sec:authorize="isAnonymous()"><a sec:authorize="isAnonymous()" accesskey="3" href="/register">Register</a></li>
+                    <li sec:authorize="isAnonymous()"><a accesskey="3" href="/register">Register</a></li>
                     <li sec:authorize="hasAuthority('ADMIN')"><a href="/registeradmin" accesskey="4">New Admin</a></li>
                     <li><a href="/allprograms" accesskey="5">Programs</a></li>
                     <li sec:authorize="hasAuthority('USER')"><a href="/myprograms" accesskey="6">My Programs</a></li>
