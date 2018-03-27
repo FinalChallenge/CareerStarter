@@ -5,6 +5,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -157,6 +158,7 @@ public class HomeController {
     }
 
     ///Look at the programs user applied to, status of those applications
+    @Transactional
     @GetMapping("/user/programs")
     public String applied(Authentication auth, Model model) {
         User user = userRepository.findByUsername(auth.getName());
