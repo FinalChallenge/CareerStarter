@@ -32,7 +32,8 @@ public class HomeController {
     ///////////EVERYONE CAN SEE//////////////////////////////////////////////////
 
     @GetMapping("/")
-    public String home(){
+    public String home(Model model){
+        model.addAttribute("classActiveSettings1","current_page_item");
         return "Home";
     }
 
