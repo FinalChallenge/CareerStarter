@@ -38,13 +38,15 @@ public class HomeController {
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login(Model model){
+        model.addAttribute("classActiveSettings1","current_page_item");
         return "Login";
     }
 
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("user", new User());
+        model.addAttribute("classActiveSettings2","current_page_item");
         return "Registration";
     }
 
@@ -70,6 +72,7 @@ public class HomeController {
     @GetMapping("/allprograms")
     public String allPrograms(Model model){
         model.addAttribute("programs", programRepository.findAll());
+        model.addAttribute("classActiveSettings4","current_page_item");
         return "All";
     }
 
@@ -90,6 +93,7 @@ public class HomeController {
             }
         }
         model.addAttribute("programs", programs);
+        model.addAttribute("classActiveSettings5","current_page_item");
         return "MyPrograms";
     }
 
@@ -130,6 +134,7 @@ public class HomeController {
         }
         model.addAttribute("c", criteria);
 //        model.addAttribute("thisUserCriterias", thisUserCriterias);
+        model.addAttribute("classActiveSettings6","current_page_item");
         return "Edit"; //Use Registration.html until Edit is fixed
     }
     @PostMapping("/user/edit")
@@ -170,6 +175,7 @@ public class HomeController {
             }
         }
         model.addAttribute("programs", programs);
+        model.addAttribute("classActiveSettings8","current_page_item");
         return "Applied";
     }
 
@@ -273,6 +279,7 @@ public class HomeController {
     @GetMapping("/registeradmin")
     public String registerAdmin(Model model){
         model.addAttribute("user", new User());
+        model.addAttribute("classActiveSettings3","current_page_item");
         return "AdminRegistration";
     }
 
@@ -296,6 +303,7 @@ public class HomeController {
             programs.add(program);
         }
         model.addAttribute("programs", programs);
+        model.addAttribute("classActiveSettings7","current_page_item");
         return "ProgramsSummary";
     }
 
