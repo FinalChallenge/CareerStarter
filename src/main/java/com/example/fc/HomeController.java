@@ -180,6 +180,7 @@ public class HomeController {
     }
 
     //////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
+    @Transactional
     @PostMapping("/apply/{id}")
     public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
