@@ -33,7 +33,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model){
-        model.addAttribute("classActiveSettings1","current_page_item");
+        model.addAttribute("classActiveSettings","current_page_item");
         return "Home";
     }
 
