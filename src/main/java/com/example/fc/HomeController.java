@@ -63,13 +63,13 @@ public class HomeController {
             userRepository.save(user);
             System.out.println("UserRole: "+user.getRoles().toString());
         }
-//        ArrayList<String> thisCriterias =  new ArrayList<String>();
-//        String [] temp = (user.getCriteria().split("&"));
-//        for(String i : temp){
-//            thisCriterias.add(i.substring(9));
-//        }
-//        user.setCriterias(thisCriterias);
-//        userRepository.save(user);
+        ArrayList<String> thisCriterias =  new ArrayList<String>();
+        String [] temp = (user.getCriteria().split("&"));
+        for(String i : temp){
+            thisCriterias.add(i.substring(9));
+        }
+        user.setCriterias(thisCriterias);
+        userRepository.save(user);
         return "redirect:/login";
     }
 
