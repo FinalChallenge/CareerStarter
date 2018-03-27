@@ -199,8 +199,10 @@ public class DataLoader implements CommandLineRunner {
         programRepository.save(learnCoding);
         learnCoding.setName("Learn Coding");
 
-        learnCoding.setDescription("This program is for students who have no experience with computer programming. " +
-                "We take you from zero to hero. You will learn the basics of programming, algorithms and object oriented programming.");
+        learnCoding.setDescription("Learn Coding is a U.S. Department of Labor grant-funded training program for " +
+                "students who have no experience with computer programming. We take you from zero to hero. " +
+                "The program aims to increase the number of programmers in the area" +
+                "You will learn the basics of programming, algorithms and object oriented programming.");
         learnCoding.addCriteria("recentGrad");
         learnCoding.addCriteria("salaryUnderCutoff");
         learnCoding.addCriteria("workInUs");
@@ -225,9 +227,11 @@ public class DataLoader implements CommandLineRunner {
         //Become a Java Developer
         Program javaDeveloper = new Program();
         programRepository.save(javaDeveloper);
-        javaDeveloper.setName("Java Developer");
+        javaDeveloper.setName("Intermediate Java Developer");
 
-        javaDeveloper.setDescription("This program is for people with some programming experience who wish to learn Java programming more in depth.");
+        javaDeveloper.setDescription("Java Development Program is an 8 hour a day, 4-week, immersive software " +
+                "engineering program for people with some programming experience who wish to learn more advanced " +
+                "Java programming. If accepted into the program all fees will be covered by the program.");
         javaDeveloper.addCriteria("understandOOP");
         javaDeveloper.addCriteria("expOOP");
         javaDeveloper.addCriteria("workInUs");
