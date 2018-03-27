@@ -58,7 +58,10 @@ public class HomeController {
         }
         if(userRepository.findByUsername(user.getUsername()) == null){
             user.addRole(roleRepository.findByRoleName("USER"));
+            System.out.println("Username: "+user.getUsername());
+            System.out.println("Password: "+user.getPassword());
             userRepository.save(user);
+            System.out.println("UserRole: "+user.getRoles().toString());
         }
 //        ArrayList<String> thisCriterias =  new ArrayList<String>();
 //        String [] temp = (user.getCriteria().split("&"));
