@@ -60,14 +60,13 @@ public class HomeController {
             user.addRole(roleRepository.findByRoleName("USER"));
             userRepository.save(user);
         }
-        userRepository.save(user);
-      /*  ArrayList<String> thisCriterias =  new ArrayList<String>();
+        ArrayList<String> thisCriterias =  new ArrayList<String>();
         String [] temp = (user.getCriteria().split("&"));
         for(String i : temp){
             thisCriterias.add(i.substring(9));
         }
         user.setCriterias(thisCriterias);
-        userRepository.save(user);*/
+        userRepository.save(user);
         return "redirect:/login";
     }
 
