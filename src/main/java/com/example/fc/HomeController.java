@@ -179,6 +179,9 @@ public class HomeController {
         User user = userRepository.findByUsername(auth.getName());
         Program program = programRepository.findOne(id);
         program.addUser(user);
+        if(program.getApplied().contains(user.getUsername())){
+            return "redirect:/user/programs";
+        }
         program.addApplied(user.getUsername());
         programRepository.save(program);
         user.addProgram(program);
@@ -190,6 +193,9 @@ public class HomeController {
     public String attendToProgram(@PathVariable("id") long id, Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
         Program program = programRepository.findOne(id);
+        if(program.getAttending().contains(user.getUsername())){
+            return "redirect:/user/programs";
+        }
         program.addAttending(user.getUsername());
         programRepository.save(program);
         return "redirect:/user/programs";
@@ -204,9 +210,10 @@ public class HomeController {
     public String acceptToProgram(@PathVariable("id") long id, @PathVariable("programid") long programid, Model model) {
         User user = userRepository.findOne(id);
         Program program = programRepository.findOne(programid);
+        if(program.getAccepted().contains(user.getUsername())){
+            return "redirect:/";
+        }
         program.addAccepted(user.getUsername());
-
-//        program.setStatus("Accepted");
         programRepository.save(program);
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject("Admission");
@@ -214,8 +221,8 @@ public class HomeController {
                 "You have been admitted for "+program.getName()+" course");
         message.setTo(user.getEmail());
         message.setFrom("mcjbc2018@gmail.com");
-
         emailSender.send(message);
+        
         return "redirect:/";
     }
     ////////////////////////////////////////////////////////////////////////////

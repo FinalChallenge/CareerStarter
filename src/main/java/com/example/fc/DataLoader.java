@@ -124,7 +124,7 @@ public class DataLoader implements CommandLineRunner {
         techHireList.add("Able to work legally in the United States");
         techHire.setCriterias(techHireList);
         programRepository.save(techHire);
-        techHire.addUser(user8);
+
         techHire.addApplied(user8.getUsername());
         techHire.addApplied(user3.getUsername());
         techHire.addApplied(user4.getUsername());
@@ -135,7 +135,14 @@ public class DataLoader implements CommandLineRunner {
         techHire.addUser(user3);
         techHire.addUser(user4);
         techHire.addUser(user5);
+        techHire.addUser(user8);
         programRepository.save(techHire);
+
+        user3.addProgram(techHire);
+        user4.addProgram(techHire);
+        user5.addProgram(techHire);
+        user8.addProgram(techHire);
+
 
 //Promising the Future
         Program promisingTheFuture=new Program();
@@ -177,6 +184,16 @@ public class DataLoader implements CommandLineRunner {
         promisingTheFuture.setCriterias(promisingTheFutureList);
         programRepository.save(promisingTheFuture);
 
+        user4.addProgram(promisingTheFuture);
+        user5.addProgram(promisingTheFuture);
+        user6.addProgram(promisingTheFuture);
+        user7.addProgram(promisingTheFuture);
+        user8.addProgram(promisingTheFuture);
+
+
+
+
+
         //Learn how to code
         Program learnCoding = new Program();
         programRepository.save(learnCoding);
@@ -200,6 +217,10 @@ public class DataLoader implements CommandLineRunner {
         learnCoding.addAccepted(user4.getUsername());
         learnCoding.addAttending(user4.getUsername());
         programRepository.save(learnCoding);
+
+        user4.addProgram(learnCoding);
+        user6.addProgram(learnCoding);
+
 
         //Become a Java Developer
         Program javaDeveloper = new Program();
@@ -227,24 +248,17 @@ public class DataLoader implements CommandLineRunner {
         javaDeveloper.addAttending(user7.getUsername());
         programRepository.save(javaDeveloper);
 
+        user5.addProgram(javaDeveloper);
+        user6.addProgram(javaDeveloper);
+        user7.addProgram(javaDeveloper);
 
+        userRepository.save(user3);
+        userRepository.save(user4);
+        userRepository.save(user5);
+        userRepository.save(user6);
+        userRepository.save(user7);
+        userRepository.save(user8);
 
-
-//        promisingTheFuture.addApplied(user2.getUsername());
-//        promisingTheFuture.addApplied(user3.getUsername());
-//        promisingTheFuture.addApplied(user4.getUsername());
-//
-//        promisingTheFuture.addAccepted(user2.getUsername());
-//        promisingTheFuture.addAccepted(user3.getUsername());
-//        promisingTheFuture.addAccepted(user4.getUsername());
-//
-//        promisingTheFuture.addAttending(user2.getUsername());
-//        promisingTheFuture.addAttending(user3.getUsername());
-//
-//        promisingTheFuture.addUser(user2);
-//        promisingTheFuture.addUser(user3);
-//        promisingTheFuture.addUser(user4);
-//        programRepository.save(promisingTheFuture);
 
     }
 }
