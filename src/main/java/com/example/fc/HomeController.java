@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -32,7 +31,7 @@ public class HomeController {
 
     ///////////EVERYONE CAN SEE//////////////////////////////////////////////////
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home(){
         return "Home";
     }
@@ -73,7 +72,7 @@ public class HomeController {
         return "All";
     }
 
-////////////////USER/////////////////////////////////////////////////////////////
+    ////////////////USER/////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
     //matched based on criteria
     @GetMapping("/myprograms")
@@ -133,12 +132,10 @@ public class HomeController {
         return "Edit"; //Use Registration.html until Edit is fixed
     }
     @PostMapping("/user/edit")
-    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result, HttpServletRequest request){
+    public String processUserChanges(@Valid @ModelAttribute("user") User user, BindingResult result){
         if(result.hasErrors()){
             return "Edit";
         }
-        String[] mycriteria=request.getParameterValues("cr1");
-        System.out.println(mycriteria);
         userRepository.save(user);
         return "redirect:/";
     }
@@ -173,7 +170,7 @@ public class HomeController {
         return "Applied";
     }
 
-//////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
+    //////////////////USER Apply or Attend program/////////////////////////////////////////////////////////////////////////////
     @PostMapping("/apply/{id}")
     public String applyToProgram(@PathVariable("id") long id, Model model, Authentication auth){
         User user = userRepository.findByUsername(auth.getName());
@@ -218,11 +215,11 @@ public class HomeController {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject("Admission");
         message.setText("Congratulation! " +
-                "You have been admitted for "+program.getName()+" course");
+                "You have been admitted for " + program.getName() + " course");
         message.setTo(user.getEmail());
         message.setFrom("mcjbc2018@gmail.com");
         emailSender.send(message);
-        
+
         return "redirect:/";
     }
     ////////////////////////////////////////////////////////////////////////////
